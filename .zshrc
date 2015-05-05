@@ -79,3 +79,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 PATH=$HOME/.cabal/bin:$PATH
+
+# Customize
+setopt MARK_DIRS
+setopt auto_cd
+function chpwd() { ls -a }
+
+# Vim
+export PATH=/usr/local/bin/usr/bin:$PATH

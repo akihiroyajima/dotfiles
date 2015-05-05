@@ -11,8 +11,11 @@ jedi-vim
 molokai
 neco-ghc
 neobundle.vim
+neocomplete-rsense.vim
+neocomplete.vim
 nerdtree
 perlomni.vim
+rsense
 syntastic
 tagbar
 ultisnips
@@ -22,6 +25,7 @@ vim-bootstrap-updater
 vim-coloresque
 vim-commentary
 vim-css3-syntax
+vim-endwise
 vim-fugitive
 vim-gitgutter
 vim-go

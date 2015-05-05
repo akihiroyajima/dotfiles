@@ -60,6 +60,7 @@ NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
 NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimproc.vim', {
 			\ 'build' : {
 			\     'windows' : 'tools\\update-dll-mingw',
@@ -138,8 +139,12 @@ NeoBundle 'arnaud-lb/vim-php-namespace'
 NeoBundle "tpope/vim-rails"
 NeoBundle "tpope/vim-rake"
 NeoBundle "tpope/vim-projectionist"
+NeoBundle 'tpope/vim-endwise'
 NeoBundle "thoughtbot/vim-rspec"
 NeoBundle "majutsushi/tagbar"
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'marcus/rsense'
+NeoBundle 'supermomonga/neocomplete-rsense.vim'
 
 
 
@@ -211,7 +216,6 @@ let g:session_command_aliases = 1
 syntax on
 set ruler
 set number
-set cursorline
 highlight LineNr ctermfg=darkyellow
 
 let no_buffers_menu=1
@@ -221,7 +225,7 @@ endif
 
 set mousemodel=popup
 set t_Co=256
-set nocursorline
+set cursorline
 set guioptions=egmrti
 set gfn=Monospace\ 10
 
@@ -578,3 +582,17 @@ let g:user_emmet_settings = {
 
 nmap <C-k> <Plug>(caw:i:toggle)
 vmap <C-k> <Plug>(caw:i:toggle)
+
+
+" neocomplete.vim
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+  endif
+  let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+
+" rubocop
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
