@@ -3,9 +3,11 @@ HTML-AutoCloseTag
 c.vim
 caw.vim
 ctrlp.vim
-desert.vim
+desertEx
 emmet-vim
+flattr.vim
 grep.vim
+heroku-colorscheme
 indentLine
 jedi-vim
 molokai
@@ -45,3 +47,4 @@ vim-trailing-whitespace
 vim2hs
 vimproc.vim
 vimshell.vim
+wells-colorscheme.vim

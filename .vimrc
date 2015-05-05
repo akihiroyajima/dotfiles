@@ -83,7 +83,10 @@ NeoBundle 'honza/vim-snippets'
 
 "" Color
 NeoBundle 'tomasr/molokai'
-NeoBundle 'vim-scripts/desert.vim'
+NeoBundle 'vim-scripts/desertEx'
+NeoBundle 'stulzer/heroku-colorscheme'
+NeoBundle 'wellsjo/wells-colorscheme.vim'
+NeoBundle 'farseer90718/flattr.vim'
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
@@ -147,11 +150,10 @@ NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
 
 
-
 "" Include user's extra bundle
-if filereadable(expand("~/.vimrc.local.bundles"))
-	source ~/.vimrc.local.bundles
-endif
+" if filereadable(expand("~/.vimrc.local.bundles"))
+" 	source ~/.vimrc.local.bundles
+" endif
 
 call neobundle#end()
 
@@ -216,22 +218,21 @@ let g:session_command_aliases = 1
 syntax on
 set ruler
 set number
-highlight LineNr ctermfg=darkyellow
 
 let no_buffers_menu=1
 if !exists('g:not_finsh_neobundle')
-	colorscheme molokai
+	colorscheme flattr
 endif
 
+set cursorline
 set mousemodel=popup
 set t_Co=256
-set cursorline
 set guioptions=egmrti
 set gfn=Monospace\ 10
 
 if has("gui_running")
 	if has("gui_mac") || has("gui_macvim")
-		set guifont=Menlo:h12
+		set guifont=SourceCodePro:h12
 		set transparency=7
 	endif
 else
@@ -272,7 +273,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'molokai'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -577,6 +578,10 @@ let g:user_emmet_settings = {
 			\   'indentation': '  '
 			\ }
 
+" vim-gitgutter
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '➜'
+let g:gitgutter_sign_removed = '✘'
 
 " comment out
 
@@ -596,3 +601,8 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 " rubocop
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
+
+" Brackets
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
