@@ -83,7 +83,7 @@ PATH=$HOME/.cabal/bin:$PATH
 # Customize
 setopt MARK_DIRS
 setopt auto_cd
-function chpwd() { ls -a }
+function chpwd() { ls }
 
 # Vim
 export PATH=/usr/local/bin/usr/bin:$PATH
