@@ -93,6 +93,7 @@ let g:vim_bootstrap_editor = "vim"				" nvim or vim
 "" Custom bundles
 
 NeoBundle 'vim-scripts/c.vim'
+NeoBundle "tyru/caw.vim.git"
 
 
 "" Python Bundle
@@ -561,13 +562,19 @@ let g:tagbar_type_ruby = {
 
 " emmet-vim
 
-let g:user_emmet_leader_key='<c-e>'
-let g:user_emmet_settings = {
-			\    'variables': {
-			\      'lang': "ja"
-			\    },
-			\   'indentation': '  '
-			\ }
+" let g:user_emmet_leader_key='<c-e>'
+" let g:user_emmet_settings = {
+" 			\    'variables': {
+" 			\      'lang': "ja"
+" 			\    },
+" 			\   'indentation': '  '
+" 			\ }
+
+
+" comment out
+
+nmap <C-k> <Plug>(caw:i:toggle)
+vmap <C-k> <Plug>(caw:i:toggle)
 
 "" Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
