@@ -17,6 +17,7 @@ syntastic
 tagbar
 ultisnips
 vim-airline
+vim-autoclose
 vim-bootstrap-updater
 vim-coloresque
 vim-commentary

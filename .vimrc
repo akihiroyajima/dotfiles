@@ -94,6 +94,7 @@ let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 NeoBundle 'vim-scripts/c.vim'
 NeoBundle "tyru/caw.vim.git"
+NeoBundle 'Townk/vim-autoclose'
 
 
 "" Python Bundle
@@ -210,6 +211,8 @@ let g:session_command_aliases = 1
 syntax on
 set ruler
 set number
+set cursorline
+highlight LineNr ctermfg=darkyellow
 
 let no_buffers_menu=1
 if !exists('g:not_finsh_neobundle')
@@ -562,21 +565,16 @@ let g:tagbar_type_ruby = {
 
 " emmet-vim
 
-" let g:user_emmet_leader_key='<c-e>'
-" let g:user_emmet_settings = {
-" 			\    'variables': {
-" 			\      'lang': "ja"
-" 			\    },
-" 			\   'indentation': '  '
-" 			\ }
+let g:user_emmet_leader_key='<c-e>'
+let g:user_emmet_settings = {
+			\    'variables': {
+			\      'lang': "ja"
+			\    },
+			\   'indentation': '  '
+			\ }
 
 
 " comment out
 
 nmap <C-k> <Plug>(caw:i:toggle)
 vmap <C-k> <Plug>(caw:i:toggle)
-
-"" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-	source ~/.vimrc.local
-endif
