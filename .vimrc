@@ -221,10 +221,13 @@ set number
 
 let no_buffers_menu=1
 if !exists('g:not_finsh_neobundle')
-	colorscheme wells-colors
+	colorscheme molokai
 endif
 
+
 set cursorline
+hi CursorLine cterm=underline ctermbg=NONE
+hi LineNr ctermfg=darkgray
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
