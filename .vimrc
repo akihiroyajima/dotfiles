@@ -571,7 +571,6 @@ let g:tagbar_type_ruby = {
 			\ }
 
 " emmet-vim
-
 let g:user_emmet_settings = {
 			\    'variables': {
 			\      'lang': "ja"
@@ -585,10 +584,8 @@ let g:gitgutter_sign_modified = '➜'
 let g:gitgutter_sign_removed = '✘'
 
 " comment out
-
 nmap <C-k> <Plug>(caw:i:toggle)
 vmap <C-k> <Plug>(caw:i:toggle)
-
 
 " neocomplete.vim
 let g:acp_enableAtStartup = 0
