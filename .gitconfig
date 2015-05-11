@@ -3,7 +3,7 @@
 	email = akihiroyazima@gmail.com
 [core]
 	excludesfile = /Users/akihiroyajima/.gitignore_global
-	editor = mvim -w
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
