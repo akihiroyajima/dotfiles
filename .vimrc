@@ -226,7 +226,6 @@ endif
 
 
 set cursorline
-hi CursorLine cterm=underline ctermbg=NONE
 hi LineNr ctermfg=darkgray
 set mousemodel=popup
 set t_Co=256
@@ -572,7 +571,6 @@ let g:tagbar_type_ruby = {
 			\ }
 
 " emmet-vim
-let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_settings = {
 			\    'variables': {
 			\      'lang': "ja"
