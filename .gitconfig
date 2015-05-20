@@ -16,3 +16,4 @@
 	default = matching
 [merge]
 	ff = false
+	tool = vimdiff
