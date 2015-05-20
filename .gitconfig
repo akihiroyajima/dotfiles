@@ -12,8 +12,5 @@
 	trustExitCode = true
 [alias]
 	co = checkout
-[push]
-	default = matching
 [merge]
-	ff = false
 	tool = vimdiff
