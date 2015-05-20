@@ -87,3 +87,7 @@ function chpwd() { ls -a }
 
 # Vim
 export PATH=/usr/local/bin/usr/bin:$PATH
+
+for F in ~/.vim/bundle/rsense/doc/*.ja.txt; do
+	mv $F $F:r:r.jax
+done

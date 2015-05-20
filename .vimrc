@@ -99,12 +99,11 @@ let g:vim_bootstrap_editor = "vim"				" nvim or vim
 "" Custom bundles
 
 NeoBundle 'vim-scripts/c.vim'
-NeoBundle "tyru/caw.vim.git"
+NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundleLazy 'tpope/vim-endwise', {
-  \ 'autoload' : { 'insert' : 1, }}
-
+" NeoBundle 'vim-scripts/YankRing.vim'
+" NeoBundleLazy 'tpope/vim-endwise', {
+"   \ 'autoload' : { 'insert' : 1, }}
 
 "" Python Bundle
 NeoBundle "davidhalter/jedi-vim"
@@ -112,10 +111,8 @@ NeoBundle "scrooloose/syntastic"
 NeoBundle "majutsushi/tagbar"
 NeoBundle "Yggdroot/indentLine"
 
-
 "" Javascript Bundle
 NeoBundle "scrooloose/syntastic"
-
 
 "" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
@@ -124,24 +121,19 @@ NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'mattn/emmet-vim'
 
-
 NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'c9s/perlomni.vim'
-
 
 NeoBundle "eagletmt/neco-ghc"
 NeoBundle "dag/vim2hs"
 NeoBundle "pbrisbin/vim-syntax-shakespeare"
 
-
 "" Go Lang Bundle
 NeoBundle "majutsushi/tagbar"
 NeoBundle "fatih/vim-go"
 
-
 "" PHP Bundle
 NeoBundle 'arnaud-lb/vim-php-namespace'
-
 
 "" Ruby Bundle
 NeoBundle "tpope/vim-rails"
@@ -153,7 +145,6 @@ NeoBundle "majutsushi/tagbar"
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
-
 
 "" Include user's extra bundle
 " if filereadable(expand("~/.vimrc.local.bundles"))
@@ -228,7 +219,6 @@ let no_buffers_menu=1
 if !exists('g:not_finsh_neobundle')
 	colorscheme molokai
 endif
-
 
 set cursorline
 hi LineNr ctermfg=darkgray
@@ -426,15 +416,15 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 "" ctrlp.vim
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
-let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
-let g:ctrlp_use_caching = 0
-cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-noremap <leader>b :CtrlPBuffer<CR>
-let g:ctrlp_map = '<leader>e'
-let g:ctrlp_open_new_file = 'r'
+" set wildmode=list:longest,list:full
+" set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
+" let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
+" let g:ctrlp_use_caching = 0
+" cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+" noremap <leader>b :CtrlPBuffer<CR>
+" let g:ctrlp_map = '<leader>e'
+" let g:ctrlp_open_new_file = 'r'
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
