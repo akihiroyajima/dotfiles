@@ -87,6 +87,8 @@ NeoBundle 'vim-scripts/desertEx'
 NeoBundle 'stulzer/heroku-colorscheme'
 NeoBundle 'wellsjo/wells-colorscheme.vim'
 NeoBundle 'farseer90718/flattr.vim'
+NeoBundle 'ajh17/Spacegray.vim'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
@@ -99,6 +101,9 @@ let g:vim_bootstrap_editor = "vim"				" nvim or vim
 NeoBundle 'vim-scripts/c.vim'
 NeoBundle "tyru/caw.vim.git"
 NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundleLazy 'tpope/vim-endwise', {
+  \ 'autoload' : { 'insert' : 1, }}
 
 
 "" Python Bundle
@@ -587,6 +592,11 @@ let g:gitgutter_sign_removed = '✘'
 nmap <C-k> <Plug>(caw:i:toggle)
 vmap <C-k> <Plug>(caw:i:toggle)
 
+" insertモードから抜ける
+inoremap <silent> jj <ESC>
+inoremap <silent> <C-j> j
+inoremap <silent> kk <ESC>
+
 " neocomplete.vim
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
@@ -600,7 +610,12 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 
-" Brackets
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+" closure
+imap " ""<Left>
+imap ' ''<Left>
+
+" Cursor movement in insert mode
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
