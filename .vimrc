@@ -53,6 +53,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
@@ -88,7 +90,7 @@ NeoBundle 'stulzer/heroku-colorscheme'
 NeoBundle 'wellsjo/wells-colorscheme.vim'
 NeoBundle 'farseer90718/flattr.vim'
 NeoBundle 'ajh17/Spacegray.vim'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
+NeoBundle "dsolstad/vim-wombat256i"
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
@@ -102,8 +104,8 @@ NeoBundle 'vim-scripts/c.vim'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'Townk/vim-autoclose'
 " NeoBundle 'vim-scripts/YankRing.vim'
-" NeoBundleLazy 'tpope/vim-endwise', {
-"   \ 'autoload' : { 'insert' : 1, }}
+NeoBundleLazy 'tpope/vim-endwise', {
+  \ 'autoload' : { 'insert' : 1, }}
 
 "" Python Bundle
 NeoBundle "davidhalter/jedi-vim"
@@ -217,7 +219,7 @@ set number
 
 let no_buffers_menu=1
 if !exists('g:not_finsh_neobundle')
-	colorscheme molokai
+	colorscheme desertEx
 endif
 
 set cursorline
@@ -441,7 +443,6 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 
-
 "" Copy/Paste/Cut
 if has('unnamedplus')
 	set clipboard=unnamed,unnamedplus
@@ -482,7 +483,6 @@ noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=lin
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
-
 " vim-python
 augroup vimrc-python
 	autocmd!
@@ -513,10 +513,7 @@ let g:airline#extensions#tagbar#enabled = 1
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
-
 let g:javascript_enable_domhtmlcss = 1
-
-
 
 let g:haskell_conceal_wide = 1
 let g:haskell_multiline_strings = 1
@@ -578,11 +575,7 @@ let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '➜'
 let g:gitgutter_sign_removed = '✘'
 
-" comment out
-nmap <C-k> <Plug>(caw:i:toggle)
-vmap <C-k> <Plug>(caw:i:toggle)
-
-" insertモードから抜ける
+" Escape from INSERT MODE
 inoremap <silent> jj <ESC>
 inoremap <silent> <C-j> j
 inoremap <silent> kk <ESC>
@@ -596,11 +589,11 @@ if !exists('g:neocomplete#force_omni_input_patterns')
   endif
   let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 
-" rubocop
+" Robocop
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 
-" closure
+" Closure
 imap " ""<Left>
 imap ' ''<Left>
 
@@ -612,3 +605,20 @@ inoremap <C-l> <Right>
 
 " Paste
 set clipboard+=unnamed
+
+" Indent
+set list listchars=tab:\¦\ 
+
+" Display of double-byte space
+function! ZenkakuSpace()
+	highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+endfunction
+
+if has('syntax')
+	augroup ZenkakuSpace
+		autocmd!
+		autocmd ColorScheme * call ZenkakuSpace()
+		autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+	augroup END
+	call ZenkakuSpace()
+endif
