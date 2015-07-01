@@ -90,7 +90,8 @@ NeoBundle 'stulzer/heroku-colorscheme'
 NeoBundle 'wellsjo/wells-colorscheme.vim'
 NeoBundle 'farseer90718/flattr.vim'
 NeoBundle 'ajh17/Spacegray.vim'
-NeoBundle "dsolstad/vim-wombat256i"
+NeoBundle 'dsolstad/vim-wombat256i'
+NeoBundle 'NLKNguyen/papercolor-theme'
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
@@ -108,13 +109,17 @@ NeoBundleLazy 'tpope/vim-endwise', {
   \ 'autoload' : { 'insert' : 1, }}
 
 "" Python Bundle
-NeoBundle "davidhalter/jedi-vim"
-NeoBundle "scrooloose/syntastic"
-NeoBundle "majutsushi/tagbar"
-NeoBundle "Yggdroot/indentLine"
+NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'Yggdroot/indentLine'
 
 "" Javascript Bundle
-NeoBundle "scrooloose/syntastic"
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'moll/vim-node'
+NeoBundle 'pangloss/vim-javascript'
 
 "" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
@@ -219,7 +224,7 @@ set number
 
 let no_buffers_menu=1
 if !exists('g:not_finsh_neobundle')
-	colorscheme desertEx
+	colorscheme molokai
 endif
 
 set cursorline
@@ -609,7 +614,9 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 " Indent
-set list listchars=tab:\¦\
+let g:indentLine_faster = 1
+nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
+set list listchars=tab:\¦\ 
 
 " Display of double-byte space
 function! ZenkakuSpace()
@@ -624,3 +631,6 @@ if has('syntax')
 	augroup END
 	call ZenkakuSpace()
 endif
+
+" JavaScript
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
