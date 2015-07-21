@@ -4,16 +4,17 @@
 [core]
 	excludesfile = /Users/ietty/.gitignore_global
 	editor = vim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = p4merge
+[mergetool]
+	keepBackUp = false
 [mergetool "p4merge"]
+	cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
 	path = p4merge
 	keepTemporaries = false
 	trustExitCode = false
 [alias]
 	co = checkout
-[merge]
-	tool = vimdiff
 [url "git@github.com:"]
 	pushinsteadof = https://github.com/
 [push]
