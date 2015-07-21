@@ -2,14 +2,14 @@
 	name = akihiroyajima
 	email = akihiroyazima@gmail.com
 [core]
-	excludesfile = /Users/akihiroyajima/.gitignore_global
+	excludesfile = /Users/ietty/.gitignore_global
 	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[mergetool "p4merge"]
+	path = p4merge
+	keepTemporaries = false
+	trustExitCode = false
 [alias]
 	co = checkout
 [merge]

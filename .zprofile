@@ -1,2 +1,2 @@
-alias atom="open -a /Applications/Atom.app/Contents/MacOS/Atom"
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
