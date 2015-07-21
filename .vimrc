@@ -55,7 +55,9 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
@@ -104,7 +106,6 @@ let g:vim_bootstrap_editor = "vim"				" nvim or vim
 NeoBundle 'vim-scripts/c.vim'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'Townk/vim-autoclose'
-" NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundleLazy 'tpope/vim-endwise', {
   \ 'autoload' : { 'insert' : 1, }}
 
@@ -122,7 +123,8 @@ NeoBundle 'moll/vim-node'
 NeoBundle 'pangloss/vim-javascript'
 
 "" HTML Bundle
-NeoBundle 'amirh/HTML-AutoCloseTag'
+" NeoBundle 'amirh/HTML-AutoCloseTag'
+NeoBundle 'alvan/vim-closetag'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'tpope/vim-haml'
@@ -613,10 +615,27 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
+" over.vim
+nnoremap <silent> <Leader>m :OverCommandLine<CR>
+nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
+
+" Font
+set guifont=Inconsolata:h14
+set guifontwide=ヒラギノ角ゴ\ StdN\ W8:h14
+
 " Indent
 let g:indentLine_faster = 1
 nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
 set list listchars=tab:\¦\ 
+
+" Yank
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+let g:yankround_max_history = 50
+nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 
 " Display of double-byte space
 function! ZenkakuSpace()
@@ -631,6 +650,9 @@ if has('syntax')
 	augroup END
 	call ZenkakuSpace()
 endif
+
+" HTML
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.html.erb"
 
 " JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
