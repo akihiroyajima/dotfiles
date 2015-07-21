@@ -450,7 +450,6 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 
-
 "" Copy/Paste/Cut
 if has('unnamedplus')
 	set clipboard=unnamed,unnamedplus
@@ -491,7 +490,6 @@ noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=lin
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
-
 " vim-python
 augroup vimrc-python
 	autocmd!
@@ -522,10 +520,7 @@ let g:airline#extensions#tagbar#enabled = 1
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
-
 let g:javascript_enable_domhtmlcss = 1
-
-
 
 let g:haskell_conceal_wide = 1
 let g:haskell_multiline_strings = 1
@@ -636,6 +631,11 @@ nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 let g:yankround_max_history = 50
 nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
+" Paste
+set clipboard+=unnamed
+
+" Indent
+set list listchars=tab:\¦\ 
 
 " Display of double-byte space
 function! ZenkakuSpace()
