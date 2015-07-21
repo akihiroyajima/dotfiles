@@ -13,6 +13,10 @@
 	path = p4merge
 	keepTemporaries = false
 	trustExitCode = false
+[diff]
+	tool = p4merge
+[difftool "p4merge"]
+	cmd = /Applications/P4V/p4merge.app/Contents/Resources/launchp4merge "\"$REMOTE\"" "\"$LOCAL\""
 [alias]
 	co = checkout
 [url "git@github.com:"]
