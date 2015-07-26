@@ -615,6 +615,9 @@ nnoremap <silent> <Leader>m :OverCommandLine<CR>
 nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
 
+" grep
+autocmd QuickFixCmdPost *grep* cwindow
+
 " Font
 set guifont=Inconsolata:h14
 set guifontwide=ヒラギノ角ゴ\ StdN\ W8:h14
@@ -631,6 +634,7 @@ nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 let g:yankround_max_history = 50
 nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
+
 " Paste
 set clipboard+=unnamed
 
