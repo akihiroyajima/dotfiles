@@ -1,0 +1,10 @@
+# View Commit ID in Main view
+set main-view = id date author commit-title:graph=yes,refs=yes
+set main-view = id:width=12 date author commit-title:graph=yes,refs=yes
+
+# split the screen in a vertical direction
+set vertical-split = no
+set split-view-height = 80%
+
+# diff
+set diff-context = 6
