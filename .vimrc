@@ -58,6 +58,7 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'kana/vim-submode'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
@@ -123,7 +124,7 @@ NeoBundle 'moll/vim-node'
 NeoBundle 'pangloss/vim-javascript'
 
 "" HTML Bundle
-" NeoBundle 'amirh/HTML-AutoCloseTag'
+NeoBundle 'amirh/HTML-AutoCloseTag'
 NeoBundle 'alvan/vim-closetag'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gorodinskiy/vim-coloresque'
@@ -640,6 +641,19 @@ set clipboard+=unnamed
 
 " Indent
 set list listchars=tab:\¦\ 
+
+" Submode
+call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
+" White Space
+autocmd BufWritePre * :%s/\s\+$//ge
 
 " Display of double-byte space
 function! ZenkakuSpace()
