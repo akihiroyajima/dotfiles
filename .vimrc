@@ -64,6 +64,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
+NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimproc.vim', {
@@ -125,7 +126,6 @@ NeoBundle 'pangloss/vim-javascript'
 
 "" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
-NeoBundle 'alvan/vim-closetag'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'tpope/vim-haml'
@@ -182,10 +182,12 @@ set fileencodings=utf-8
 set backspace=indent,eol,start
 
 "" Tabs. May be overriten by autocmd rules
+set expandtab
 set tabstop=2
 set softtabstop=0
 set shiftwidth=2
-set expandtab
+set autoindent
+set smartindent
 
 "" Map leader to ,
 let mapleader=','
@@ -195,7 +197,6 @@ set hidden
 
 "" Searching
 set hlsearch
-set incsearch
 set ignorecase
 set smartcase
 
@@ -239,7 +240,7 @@ set gfn=Monospace\ 10
 
 if has("gui_running")
 	if has("gui_mac") || has("gui_macvim")
-		set guifont=SourceCodePro:h12
+		set guifont=Inconsolata:h12
 		set transparency=7
 	endif
 else
@@ -336,6 +337,9 @@ nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
 
+" vimgrep
+autocmd QuickFixCmdPost *grep* cwindow
+
 " vimshell.vim
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_prompt =  '$ '
@@ -426,15 +430,15 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 "" ctrlp.vim
-" set wildmode=list:longest,list:full
-" set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
-" let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
-" let g:ctrlp_use_caching = 0
-" cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-" noremap <leader>b :CtrlPBuffer<CR>
-" let g:ctrlp_map = '<leader>e'
-" let g:ctrlp_open_new_file = 'r'
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
+let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
+let g:ctrlp_use_caching = 0
+cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>b :CtrlPBuffer<CR>
+let g:ctrlp_map = '<leader>e'
+let g:ctrlp_open_new_file = 'r'
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -583,20 +587,6 @@ let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '➜'
 let g:gitgutter_sign_removed = '✘'
 
-" Escape from INSERT MODE
-inoremap <silent> jj <ESC>
-inoremap <silent> <C-j> j
-inoremap <silent> kk <ESC>
-
-" neocomplete.vim
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-  endif
-  let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-
 " Robocop
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
@@ -604,6 +594,10 @@ let g:syntastic_ruby_checkers = ['rubocop']
 " Closure
 imap " ""<Left>
 imap ' ''<Left>
+
+" Escape from INSERT MODE
+inoremap <silent> jj <ESC>
+inoremap <silent> kk <ESC>
 
 " Cursor movement in insert mode
 inoremap <C-j> <Down>
@@ -619,14 +613,16 @@ nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!
 " grep
 autocmd QuickFixCmdPost *grep* cwindow
 
-" Font
-set guifont=Inconsolata:h14
-set guifontwide=ヒラギノ角ゴ\ StdN\ W8:h14
+" Wild menu
+set wildmenu wildmode=list:full
 
-" Indent
+" Nohighlight
+nnoremap <ESC><ESC> :nohlsearch<CR>
+
+" IndentLine
 let g:indentLine_faster = 1
 nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
-set list listchars=tab:\¦\ 
+set list listchars=tab:▸\ ,eol:¬
 
 " Yank
 nmap p <Plug>(yankround-p)
@@ -639,8 +635,8 @@ nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 " Paste
 set clipboard+=unnamed
 
-" Indent
-set list listchars=tab:\¦\ 
+" Mouse
+set mouse=a
 
 " Submode
 call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
