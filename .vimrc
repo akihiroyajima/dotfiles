@@ -625,9 +625,6 @@ nmap <C-n> <Plug>(yankround-next)
 let g:yankround_max_history = 50
 nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 
-" Paste
-set clipboard+=unnamed
-
 " Mouse
 set mouse=a
 
