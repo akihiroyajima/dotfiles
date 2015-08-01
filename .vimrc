@@ -386,7 +386,7 @@ augroup END
 "" make/cmake
 augroup vimrc-make-cmake
 	autocmd!
-	autocmd FileType make setlocal noexpandtab
+	autocmd FileType make setlocal expandtab
 	autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
