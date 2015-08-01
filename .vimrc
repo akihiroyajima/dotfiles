@@ -58,11 +58,13 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'kana/vim-submode'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
+NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimproc.vim', {
@@ -106,7 +108,7 @@ NeoBundle 'vim-scripts/c.vim'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundleLazy 'tpope/vim-endwise', {
-  \ 'autoload' : { 'insert' : 1, }}
+			\ 'autoload' : { 'insert' : 1, }}
 
 "" Python Bundle
 NeoBundle 'davidhalter/jedi-vim'
@@ -123,8 +125,7 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'scrooloose/syntastic'
 
 "" HTML Bundle
-" NeoBundle 'amirh/HTML-AutoCloseTag'
-NeoBundle 'alvan/vim-closetag'
+NeoBundle 'amirh/HTML-AutoCloseTag'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'tpope/vim-haml'
@@ -181,10 +182,12 @@ set fileencodings=utf-8
 set backspace=indent,eol,start
 
 "" Tabs. May be overriten by autocmd rules
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
 set expandtab
+set tabstop=2
+set softtabstop=0
+set shiftwidth=2
+set autoindent
+set smartindent
 
 "" Map leader to ,
 let mapleader=','
@@ -194,7 +197,6 @@ set hidden
 
 "" Searching
 set hlsearch
-set incsearch
 set ignorecase
 set smartcase
 
@@ -238,7 +240,7 @@ set gfn=Monospace\ 10
 
 if has("gui_running")
 	if has("gui_mac") || has("gui_macvim")
-		set guifont=SourceCodePro:h12
+		set guifont=Inconsolata:h12
 		set transparency=7
 	endif
 else
@@ -335,6 +337,9 @@ nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
 
+" vimgrep
+autocmd QuickFixCmdPost *grep* cwindow
+
 " vimshell.vim
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_prompt =  '$ '
@@ -381,7 +386,7 @@ augroup END
 "" make/cmake
 augroup vimrc-make-cmake
 	autocmd!
-	autocmd FileType make setlocal noexpandtab
+	autocmd FileType make setlocal expandtab
 	autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
@@ -527,7 +532,6 @@ let g:haskell_multiline_strings = 1
 let g:necoghc_enable_detailed_browse = 1
 autocmd Filetype haskell setlocal omnifunc=necoghc#omnifunc
 
-
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
@@ -582,21 +586,6 @@ let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '➜'
 let g:gitgutter_sign_removed = '✘'
 
-" Escape from INSERT MODE
-inoremap <silent> jj <ESC>
-inoremap <silent> <C-j> j
-inoremap <silent> kk <ESC>
-inoremap <silent> <C-k> k
-
-" neocomplete.vim
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-  endif
-  let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-
 " Robocop
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
@@ -604,6 +593,10 @@ let g:syntastic_ruby_checkers = ['rubocop']
 " Closure
 imap " ""<Left>
 imap ' ''<Left>
+
+" Escape from INSERT MODE
+inoremap <silent> jj <ESC>
+inoremap <silent> kk <ESC>
 
 " Cursor movement in insert mode
 inoremap <C-j> <Down>
@@ -619,14 +612,16 @@ nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!
 " grep
 autocmd QuickFixCmdPost *grep* cwindow
 
-" Font
-set guifont=Inconsolata:h14
-set guifontwide=ヒラギノ角ゴ\ StdN\ W8:h14
+" Wild menu
+set wildmenu wildmode=list:full
 
-" Indent
+" Nohighlight
+nnoremap <ESC><ESC> :nohlsearch<CR>
+
+" IndentLine
 let g:indentLine_faster = 1
 nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
-set list listchars=tab:\¦\ 
+set list listchars=tab:▸\ ,eol:¬
 
 " Yank
 nmap p <Plug>(yankround-p)
@@ -638,6 +633,22 @@ nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 
 " Paste
 set clipboard+=unnamed
+
+" Mouse
+set mouse=a
+
+" Submode
+call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
+" White Space
+autocmd BufWritePre * :%s/\s\+$//ge
 
 " Display of double-byte space
 function! ZenkakuSpace()
