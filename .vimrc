@@ -3,40 +3,40 @@
 "*****************************************************************************
 
 if has('vim_starting')
-	set nocompatible               " Be iMproved
+  set nocompatible               " Be iMproved
 
-	" Required:
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
 
 if !filereadable(neobundle_readme)
-	echo "Installing NeoBundle..."
-	echo ""
-	silent !mkdir -p ~/.vim/bundle
-	silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
-	let g:not_finsh_neobundle = "yes"
+  echo "Installing NeoBundle..."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
+  let g:not_finsh_neobundle = "yes"
 
-	" Run shell script if exist on custom select language
+  " Run shell script if exist on custom select language
 
-	silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/c/c.sh | bash -s stable
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/c/c.sh | bash -s stable
 
-	silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/python/python.sh | bash -s stable
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/python/python.sh | bash -s stable
 
-	silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/javascript/javascript.sh | bash -s stable
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/javascript/javascript.sh | bash -s stable
 
-	silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/html/html.sh | bash -s stable
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/html/html.sh | bash -s stable
 
-	silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/perl/perl.sh | bash -s stable
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/perl/perl.sh | bash -s stable
 
-	silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/haskell/haskell.sh | bash -s stable
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/haskell/haskell.sh | bash -s stable
 
-	silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/go/go.sh | bash -s stable
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/go/go.sh | bash -s stable
 
-	silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/php/php.sh | bash -s stable
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/php/php.sh | bash -s stable
 
-	silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/ruby/ruby.sh | bash -s stable
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/ruby/ruby.sh | bash -s stable
 
 endif
 
@@ -68,15 +68,15 @@ NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimproc.vim', {
-			\ 'build' : {
-			\     'windows' : 'tools\\update-dll-mingw',
-			\     'cygwin' : 'make -f make_cygwin.mak',
-			\     'mac' : 'make -f make_mac.mak',
-			\     'unix' : 'make -f make_unix.mak',
-			\    },
-			\ }
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 if v:version > 702
-	NeoBundle 'Shougo/vimshell.vim'
+  NeoBundle 'Shougo/vimshell.vim'
 endif
 
 "" Vim-Session
@@ -108,7 +108,7 @@ NeoBundle 'vim-scripts/c.vim'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundleLazy 'tpope/vim-endwise', {
-			\ 'autoload' : { 'insert' : 1, }}
+      \ 'autoload' : { 'insert' : 1, }}
 
 "" Python Bundle
 NeoBundle 'davidhalter/jedi-vim'
@@ -181,14 +181,6 @@ set fileencodings=utf-8
 "" Fix backspace indent
 set backspace=indent,eol,start
 
-"" Tabs. May be overriten by autocmd rules
-set expandtab
-set tabstop=2
-set softtabstop=0
-set shiftwidth=2
-set autoindent
-set smartindent
-
 "" Map leader to ,
 let mapleader=','
 
@@ -228,7 +220,7 @@ set number
 
 let no_buffers_menu=1
 if !exists('g:not_finsh_neobundle')
-	colorscheme molokai
+  colorscheme molokai
 endif
 
 set cursorline
@@ -239,24 +231,24 @@ set guioptions=egmrti
 set gfn=Monospace\ 10
 
 if has("gui_running")
-	if has("gui_mac") || has("gui_macvim")
-		set guifont=Inconsolata:h12
-		set transparency=7
-	endif
+  if has("gui_mac") || has("gui_macvim")
+    set guifont=Inconsolata\ for\ Powerline:h12
+    set transparency=7
+  endif
 else
-	let g:CSApprox_loaded = 1
+  let g:CSApprox_loaded = 1
 
-	if $COLORTERM == 'gnome-terminal'
-		set term=gnome-256color
-	else
-		if $TERM == 'xterm'
-			set term=xterm-256color
-		endif
-	endif
+  if $COLORTERM == 'gnome-terminal'
+    set term=gnome-256color
+  else
+    if $TERM == 'xterm'
+      set term=xterm-256color
+    endif
+  endif
 endif
 
 if &term =~ '256color'
-	set t_ut=
+  set t_ut=
 endif
 
 "" Disable the blinking cursor.
@@ -277,34 +269,35 @@ set titlestring=%F
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
 if exists("*fugitive#statusline")
-	set statusline+=%{fugitive#statusline()}
+  set statusline+=%{fugitive#statusline()}
 endif
 
 " vim-airline
 let g:airline_theme = 'molokai'
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 
 if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 
 if !exists('g:airline_powerline_fonts')
-	let g:airline#extensions#tabline#left_sep = ' '
-	let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
 else
-	let g:airline#extensions#tabline#left_sep = ''
-	let g:airline#extensions#tabline#left_alt_sep = ''
+  let g:airline#extensions#tabline#left_sep = '>'
+  let g:airline#extensions#tabline#left_alt_sep = '>'
 
-	" powerline symbols
-	let g:airline_left_sep = ''
-	let g:airline_left_alt_sep = ''
-	let g:airline_right_sep = ''
-	let g:airline_right_alt_sep = ''
-	let g:airline_symbols.branch = ''
-	let g:airline_symbols.readonly = ''
-	let g:airline_symbols.linenr = ''
+  " powerline symbols
+  let g:airline_left_sep = '>'
+  let g:airline_left_alt_sep = '>'
+  let g:airline_right_sep = '<'
+  let g:airline_right_alt_sep = '<'
+  let g:airline_symbols.branch = '⭠'
+  let g:airline_symbols.readonly = '⭤'
+  let g:airline_symbols.linenr = ''
 endif
 "*****************************************************************************
 "" Abbreviations
@@ -346,20 +339,20 @@ let g:vimshell_prompt =  '$ '
 
 " terminal emulation
 if g:vim_bootstrap_editor == 'nvim'
-	nnoremap <silent> <leader>sh :terminal<CR>
+  nnoremap <silent> <leader>sh :terminal<CR>
 else
-	nnoremap <silent> <leader>sh :VimShellCreate<CR>
+  nnoremap <silent> <leader>sh :VimShellCreate<CR>
 endif
 
 "*****************************************************************************
 "" Functions
 "*****************************************************************************
 if !exists('*s:setupWrapping')
-	function s:setupWrapping()
-		set wrap
-		set wm=2
-		set textwidth=79
-	endfunction
+  function s:setupWrapping()
+    set wrap
+    set wm=2
+    set textwidth=79
+  endfunction
 endif
 
 "*****************************************************************************
@@ -367,27 +360,27 @@ endif
 "*****************************************************************************
 "" The PC is fast enough, do syntax highlight syncing from start
 augroup vimrc-sync-fromstart
-	autocmd!
-	autocmd BufEnter * :syntax sync fromstart
+  autocmd!
+  autocmd BufEnter * :syntax sync fromstart
 augroup END
 
 "" Remember cursor position
 augroup vimrc-remember-cursor-position
-	autocmd!
-	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  autocmd!
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
 "" txt
 augroup vimrc-wrapping
-	autocmd!
-	autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
+  autocmd!
+  autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
 augroup END
 
 "" make/cmake
 augroup vimrc-make-cmake
-	autocmd!
-	autocmd FileType make setlocal expandtab
-	autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
+  autocmd!
+  autocmd FileType make setlocal expandtab
+  autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
 set autoread
@@ -457,7 +450,7 @@ let g:syntastic_aggregate_errors = 1
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
-	set clipboard=unnamed,unnamedplus
+  set clipboard=unnamed,unnamedplus
 endif
 
 noremap YY "+y<CR>
@@ -465,9 +458,9 @@ noremap P "+gP<CR>
 noremap XX "+x<CR>
 
 if has('macunix')
-	" pbcopy for OSX copy/paste
-	vmap <C-x> :!pbcopy<CR>
-	vmap <C-c> :w !pbcopy<CR><CR>
+  " pbcopy for OSX copy/paste
+  vmap <C-x> :!pbcopy<CR>
+  vmap <C-c> :w !pbcopy<CR><CR>
 endif
 
 "" Buffer nav
@@ -497,10 +490,10 @@ let g:tagbar_autofocus = 1
 
 " vim-python
 augroup vimrc-python
-	autocmd!
-	autocmd FileType python setlocal expandtab shiftwidth=2 tabstop=2 colorcolumn=79
-				\ formatoptions+=croq softtabstop=2 smartindent
-				\ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+  autocmd!
+  autocmd FileType python setlocal expandtab shiftwidth=2 tabstop=2 colorcolumn=79
+        \ formatoptions+=croq softtabstop=2 smartindent
+        \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
 
 " jedi-vim
@@ -537,25 +530,25 @@ nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 let g:tagbar_type_go = {
-			\ 'ctagstype' : 'go',
-			\ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
-			\ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
-			\ 'r:constructor', 'f:functions' ],
-			\ 'sro' : '.',
-			\ 'kind2scope' : { 't' : 'ctype', 'n' : 'ntype' },
-			\ 'scope2kind' : { 'ctype' : 't', 'ntype' : 'n' },
-			\ 'ctagsbin'  : 'gotags',
-			\ 'ctagsargs' : '-sort -silent'
-			\ }
+      \ 'ctagstype' : 'go',
+      \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
+      \ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
+      \ 'r:constructor', 'f:functions' ],
+      \ 'sro' : '.',
+      \ 'kind2scope' : { 't' : 'ctype', 'n' : 'ntype' },
+      \ 'scope2kind' : { 'ctype' : 't', 'ntype' : 'n' },
+      \ 'ctagsbin'  : 'gotags',
+      \ 'ctagsargs' : '-sort -silent'
+      \ }
 
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
 augroup vimrc-ruby
-	autocmd!
-	autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
-	autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd!
+  autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
+  autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 " Tagbar
@@ -563,23 +556,23 @@ nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 let g:tagbar_type_ruby = {
-			\ 'kinds' : [
-			\ 'm:modules',
-			\ 'c:classes',
-			\ 'd:describes',
-			\ 'C:contexts',
-			\ 'f:methods',
-			\ 'F:singleton methods'
-			\ ]
-			\ }
+      \ 'kinds' : [
+      \ 'm:modules',
+      \ 'c:classes',
+      \ 'd:describes',
+      \ 'C:contexts',
+      \ 'f:methods',
+      \ 'F:singleton methods'
+      \ ]
+      \ }
 
 " emmet-vim
 let g:user_emmet_settings = {
-			\    'variables': {
-			\      'lang': "ja"
-			\    },
-			\   'indentation': '  '
-			\ }
+      \    'variables': {
+      \      'lang': "ja"
+      \    },
+      \   'indentation': '  '
+      \ }
 
 " vim-gitgutter
 let g:gitgutter_sign_added = '✚'
@@ -620,8 +613,9 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " IndentLine
 let g:indentLine_faster = 1
+let g:indentLine_char = '▸'
 nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
-set list listchars=tab:▸\ ,eol:¬
+set list listchars=tab:¦\ ,eol:¬
 
 " Yank
 nmap p <Plug>(yankround-p)
@@ -650,18 +644,26 @@ call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 " White Space
 autocmd BufWritePre * :%s/\s\+$//ge
 
+"" Tabs. May be overriten by autocmd rules
+set expandtab
+set tabstop=2
+set softtabstop=0
+set shiftwidth=2
+set autoindent
+set smartindent
+
 " Display of double-byte space
 function! ZenkakuSpace()
-	highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 endfunction
 
 if has('syntax')
-	augroup ZenkakuSpace
-		autocmd!
-		autocmd ColorScheme * call ZenkakuSpace()
-		autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
-	augroup END
-	call ZenkakuSpace()
+  augroup ZenkakuSpace
+    autocmd!
+    autocmd ColorScheme * call ZenkakuSpace()
+    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+  augroup END
+  call ZenkakuSpace()
 endif
 
 " HTML
