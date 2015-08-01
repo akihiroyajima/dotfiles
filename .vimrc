@@ -102,7 +102,6 @@ let g:vim_bootstrap_langs = "javascript,ruby,haskell,python,c,php,html,perl,go"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 "" Custom bundles
-
 NeoBundle 'vim-scripts/c.vim'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'Townk/vim-autoclose'
@@ -121,6 +120,7 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'moll/vim-node'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'scrooloose/syntastic'
 
 "" HTML Bundle
 " NeoBundle 'amirh/HTML-AutoCloseTag'
@@ -182,8 +182,8 @@ set backspace=indent,eol,start
 
 "" Tabs. May be overriten by autocmd rules
 set tabstop=2
-set softtabstop=0
 set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 "" Map leader to ,
@@ -425,15 +425,15 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 "" ctrlp.vim
-" set wildmode=list:longest,list:full
-" set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
-" let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
-" let g:ctrlp_use_caching = 0
-" cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-" noremap <leader>b :CtrlPBuffer<CR>
-" let g:ctrlp_map = '<leader>e'
-" let g:ctrlp_open_new_file = 'r'
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
+let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
+let g:ctrlp_use_caching = 0
+cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>b :CtrlPBuffer<CR>
+let g:ctrlp_map = '<leader>e'
+let g:ctrlp_open_new_file = 'r'
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -586,6 +586,7 @@ let g:gitgutter_sign_removed = '✘'
 inoremap <silent> jj <ESC>
 inoremap <silent> <C-j> j
 inoremap <silent> kk <ESC>
+inoremap <silent> <C-k> k
 
 " neocomplete.vim
 let g:acp_enableAtStartup = 0
@@ -638,9 +639,6 @@ nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 " Paste
 set clipboard+=unnamed
 
-" Indent
-set list listchars=tab:\¦\ 
-
 " Display of double-byte space
 function! ZenkakuSpace()
 	highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
@@ -660,3 +658,5 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.html.erb"
 
 " JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+let g:syntastic_javascript_checker = "jshint"
+let g:SimpleJsIndenter_BriefMode = 1
