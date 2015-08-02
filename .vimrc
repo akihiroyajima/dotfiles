@@ -292,8 +292,8 @@ if !exists('g:airline_powerline_fonts')
   let g:airline#extensions#tabline#left_sep = ' '
   let g:airline#extensions#tabline#left_alt_sep = '|'
 else
-  let g:airline#extensions#tabline#left_sep = '>'
-  let g:airline#extensions#tabline#left_alt_sep = '>'
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
 
   " powerline symbols
   let g:airline_left_sep = '>'
@@ -420,9 +420,6 @@ nnoremap <silent> <S-t> :tabnew<CR>
 
 nnoremap    [Tag]   <Nop>
 nmap    t [Tag]
-for n in range(1, 9)
-  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
 map <silent> [Tag]f :tabfirst
 map <silent> [Tag]l :tablast
 map <silent> [Tag]c :tablast <bar> tabnew<CR>
