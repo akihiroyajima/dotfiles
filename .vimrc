@@ -332,7 +332,7 @@ let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 20
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <C-Y> :NERDTreeToggle<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -584,7 +584,7 @@ let g:tagbar_type_ruby = {
       \ }
 
 " emmet-vim
-let g:user_emmet_leader_key='<c-e>'
+let g:user_emmet_leader_key='<C-E>'
 let g:user_emmet_settings = {
       \    'variables': {
       \      'lang': "ja"
