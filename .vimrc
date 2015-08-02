@@ -278,6 +278,9 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
+let g:airline#extensions#virtualenv#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+
 let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#syntastic#enabled = 1
@@ -292,8 +295,8 @@ if !exists('g:airline_powerline_fonts')
   let g:airline#extensions#tabline#left_sep = ' '
   let g:airline#extensions#tabline#left_alt_sep = '|'
 else
-  let g:airline#extensions#tabline#left_sep = '>'
-  let g:airline#extensions#tabline#left_alt_sep = '>'
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
 
   " powerline symbols
   let g:airline_left_sep = '>'
@@ -417,18 +420,12 @@ nnoremap <leader>sc :CloseSession<CR>
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
-
-nnoremap    [Tag]   <Nop>
-nmap    t [Tag]
-for n in range(1, 9)
-  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
-map <silent> [Tag]f :tabfirst
-map <silent> [Tag]l :tablast
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
-map <silent> [Tag]x :tabclose<CR>
-" map <silent> [Tag]n :tabnext<CR>
-" map <silent> [Tag]p :tabprevious<CR>
+map <silent>tf :tabfirst<CR>
+map <silent>tl :tablast<CR>
+map <silent>tc :tablast <bar> tabnew<CR>
+map <silent>tx :tabclose<CR>
+" map <silent> tn :tabnext<CR>
+" map <silent> tp :tabprevious<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -526,10 +523,6 @@ let g:jedi#completions_command = "<C-Space>"
 " syntastic
 let g:syntastic_python_checkers=['python', 'flake8']
 let g:syntastic_python_flake8_post_args='--ignore=W391'
-
-" vim-airline
-let g:airline#extensions#virtualenv#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
