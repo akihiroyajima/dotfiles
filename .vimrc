@@ -338,8 +338,12 @@ nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
 
-" vimgrep
+" Quickfix
 autocmd QuickFixCmdPost *grep* cwindow
+nnoremap [q :cprevious
+nnoremap ]q :cnext
+nnoremap [Q :cfirst
+nnoremap ]Q :clast
 
 " vimshell.vim
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
@@ -614,9 +618,6 @@ inoremap <C-l> <Right>
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
 nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
-
-" grep
-autocmd QuickFixCmdPost *grep* cwindow
 
 " Wild menu
 set wildmenu wildmode=list:full
