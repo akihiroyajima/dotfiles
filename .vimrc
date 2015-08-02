@@ -128,6 +128,7 @@ NeoBundle 'scrooloose/syntastic'
 "" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
 NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'mattn/emmet-vim'
@@ -693,6 +694,7 @@ let g:sass_compile_file = ['scss', 'sass']
 let g:sass_started_dirs = []
 
 autocmd FileType less,sass  setlocal sw=2 sts=2 ts=2 et
+au BufRead,BufNewFile *.scss set filetype=sass
 
 " JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
