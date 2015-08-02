@@ -67,6 +67,7 @@ NeoBundle 'vim-scripts/CSApprox'
 NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'open-browser.vim'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
       \     'windows' : 'tools\\update-dll-mingw',
@@ -130,7 +131,10 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'taichouchou2/html5.vim'
+NeoBundle 'AtsushiM/sass-compile.vim'
 
+" Perl
 NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'c9s/perlomni.vim'
 
@@ -680,6 +684,15 @@ endif
 
 " HTML
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.html.erb"
+
+" Sass
+" let g:sass_compile_auto = 1
+let g:sass_compile_cdloop = 5
+let g:sass_compile_cssdir = ['css', 'stylesheet']
+let g:sass_compile_file = ['scss', 'sass']
+let g:sass_started_dirs = []
+
+autocmd FileType less,sass  setlocal sw=2 sts=2 ts=2 et
 
 " JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
