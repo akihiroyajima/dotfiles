@@ -628,9 +628,9 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " IndentLine
 let g:indentLine_faster = 1
-let g:indentLine_char = '▸'
+let g:indentLine_char = '│'
 nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
-set list listchars=tab:¦\ ,eol:¬
+set list listchars=tab:▸\ ,eol:¬
 
 " Yank
 nmap p <Plug>(yankround-p)
