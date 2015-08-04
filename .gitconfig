@@ -1,25 +1,33 @@
 [user]
-	name = akihiroyajima
-	email = akihiroyazima@gmail.com
+  name = akihiroyajima
+  email = akihiroyazima@gmail.com
 [core]
-	excludesfile = /Users/ietty/.gitignore_global
-	editor = vim
+  excludesfile = /Users/ietty/.gitignore_global
+  editor = vim
 [merge]
-	tool = p4merge
+  tool = p4merge
 [mergetool]
-	keepBackUp = false
+  keepBackUp = false
 [mergetool "p4merge"]
-	cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-	path = p4merge
-	keepTemporaries = false
-	trustExitCode = false
+  cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+  path = p4merge
+  keepTemporaries = false
+  trustExitCode = false
 [diff]
-	tool = p4merge
+  tool = p4merge
 [difftool "p4merge"]
-	cmd = /Applications/P4V/p4merge.app/Contents/Resources/launchp4merge "\"$REMOTE\"" "\"$LOCAL\""
+  cmd = /Applications/P4V/p4merge.app/Contents/Resources/launchp4merge "\"$REMOTE\"" "\"$LOCAL\""
 [alias]
-	co = checkout
+  ad = add
+  br = branch
+  ci = commit
+  co = checkout
+  ft = fetch
+  pl = pull
+  ps = push
+  sh = show
+  st = status
 [url "git@github.com:"]
-	pushinsteadof = https://github.com/
+  pushinsteadof = https://github.com/
 [push]
-	default = simple
+  default = simple

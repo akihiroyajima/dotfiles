@@ -75,23 +75,48 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Config
+alias zshconfig='vim ~/.zshrc'
+alias vimconfig='vim ~/.vimrc'
+alias gitconfig='vim ~/.gitconfig'
+alias ohmyzsh='vim ~/.oh-my-zsh'
 PATH=$HOME/.cabal/bin:$PATH
 
-# Customize
+# Directory
 setopt MARK_DIRS
 setopt auto_cd
 function chpwd() { ls -F }
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
-# Vim
-export PATH=/usr/local/bin/usr/bin:$PATH
+alias la='ls -a'
+alias lf='ls -F'
+alias ll='ls -l'
+alias lla='ls -la'
+
+alias dotfiles='cd ~/Documents/dotfiles'
 
 # Vim
-# export PATH=/usr/local/bin/usr/bin:$PATH
-#
+alias vi='vim'
+export PATH=/usr/local/bin/usr/bin:$PATH
+
+# Git
+alias g='git'
+alias gb='git branch'
+alias gs='git status'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias ga.='git add .'
+alias gcm='git commit -m'
+alias gcam='git commit -am'
+alias gpod='git push origin develop'
+alias gp='git push'
+alias gfo='git fetch origin'
+alias grod='git rebase origin/develop'
+alias gsp='git stash pop'
+alias gsu='git submodule update --init --recursive'
+alias gcd='git checkout develop'
+alias gmnf='git merge --no-ff'
+
 # for F in ~/.vim/bundle/rsense/doc/*.ja.txt; do
 # 	mv $F $F:r:r.jax
 # done
