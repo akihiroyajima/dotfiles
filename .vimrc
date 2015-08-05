@@ -418,8 +418,6 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
-nnoremap <C-n> gt
-nnoremap <C-p> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 map <silent> tn :tabnext<CR>
 map <silent> tp :tabprevious<CR>
