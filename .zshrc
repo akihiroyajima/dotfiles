@@ -116,7 +116,3 @@ alias gsp='git stash pop'
 alias gsu='git submodule update --init --recursive'
 alias gcd='git checkout develop'
 alias gmnf='git merge --no-ff'
-
-# for F in ~/.vim/bundle/rsense/doc/*.ja.txt; do
-# 	mv $F $F:r:r.jax
-# done

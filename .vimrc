@@ -3,7 +3,7 @@
 "*****************************************************************************
 
 if has('vim_starting')
-  set nocompatible               " Be iMproved
+  set nocompatible  " Be iMproved
 
   " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -102,7 +102,7 @@ NeoBundle 'NLKNguyen/papercolor-theme'
 NeoBundle 'sherzberg/vim-bootstrap-updater'
 
 let g:vim_bootstrap_langs = "javascript,ruby,haskell,python,c,php,html,perl,go"
-let g:vim_bootstrap_editor = "vim"				" nvim or vim
+let g:vim_bootstrap_editor = "vim"  " nvim or vim
 
 "" Custom bundles
 NeoBundle 'vim-scripts/c.vim'
@@ -118,12 +118,10 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Yggdroot/indentLine'
 
 "" Javascript Bundle
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'moll/vim-node'
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'scrooloose/syntastic'
 
 "" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
@@ -135,7 +133,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'taichouchou2/html5.vim'
 NeoBundle 'AtsushiM/sass-compile.vim'
 
-" Perl
+" Perl Bundle
 NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'c9s/perlomni.vim'
 
@@ -157,7 +155,6 @@ NeoBundle "tpope/vim-projectionist"
 NeoBundle 'tpope/vim-endwise'
 NeoBundle "thoughtbot/vim-rspec"
 NeoBundle "majutsushi/tagbar"
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
 
@@ -466,6 +463,11 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 
+" vim-gitgutter
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '➜'
+let g:gitgutter_sign_removed = '✘'
+
 "" Copy/Paste/Cut
 if has('unnamedplus')
   set clipboard+=unnamed,unnamedplus
@@ -583,6 +585,34 @@ let g:tagbar_type_ruby = {
       \ ]
       \ }
 
+" White Space
+autocmd BufWritePre * :%s/\s\+$//ge
+
+"" Tabs. May be overriten by autocmd rules
+set expandtab
+set tabstop=2
+set softtabstop=0
+set shiftwidth=2
+set autoindent
+set smartindent
+
+" Display of double-byte space
+function! ZenkakuSpace()
+  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+endfunction
+
+if has('syntax')
+  augroup ZenkakuSpace
+    autocmd!
+    autocmd ColorScheme * call ZenkakuSpace()
+    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+  augroup END
+  call ZenkakuSpace()
+endif
+
+"" HTML
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.html.erb"
+
 " emmet-vim
 let g:user_emmet_leader_key='<C-E>'
 let g:user_emmet_settings = {
@@ -592,10 +622,20 @@ let g:user_emmet_settings = {
       \   'indentation': '  '
       \ }
 
-" vim-gitgutter
-" let g:gitgutter_sign_added = '✚'
-" let g:gitgutter_sign_modified = '➜'
-" let g:gitgutter_sign_removed = '✘'
+" Sass
+" let g:sass_compile_auto = 1
+let g:sass_compile_cdloop = 5
+let g:sass_compile_cssdir = ['css', 'stylesheet']
+let g:sass_compile_file = ['scss', 'sass']
+let g:sass_started_dirs = []
+
+autocmd FileType less,sass  setlocal sw=2 sts=2 ts=2 et
+au BufRead,BufNewFile *.scss set filetype=sass
+
+"" JavaScript
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+let g:syntastic_javascript_checker = "jshint"
+let g:SimpleJsIndenter_BriefMode = 1
 
 " Robocop
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
@@ -655,46 +695,3 @@ call submode#map('bufmove', 'n', '', '>', '<C-w>>')
 call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
-
-" White Space
-autocmd BufWritePre * :%s/\s\+$//ge
-
-"" Tabs. May be overriten by autocmd rules
-set expandtab
-set tabstop=2
-set softtabstop=0
-set shiftwidth=2
-set autoindent
-set smartindent
-
-" Display of double-byte space
-function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-endfunction
-
-if has('syntax')
-  augroup ZenkakuSpace
-    autocmd!
-    autocmd ColorScheme * call ZenkakuSpace()
-    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
-  augroup END
-  call ZenkakuSpace()
-endif
-
-" HTML
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.html.erb"
-
-" Sass
-" let g:sass_compile_auto = 1
-let g:sass_compile_cdloop = 5
-let g:sass_compile_cssdir = ['css', 'stylesheet']
-let g:sass_compile_file = ['scss', 'sass']
-let g:sass_started_dirs = []
-
-autocmd FileType less,sass  setlocal sw=2 sts=2 ts=2 et
-au BufRead,BufNewFile *.scss set filetype=sass
-
-" JavaScript
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-let g:syntastic_javascript_checker = "jshint"
-let g:SimpleJsIndenter_BriefMode = 1

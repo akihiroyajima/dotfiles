@@ -2,7 +2,7 @@
   name = akihiroyajima
   email = akihiroyazima@gmail.com
 [core]
-  excludesfile = /Users/ietty/.gitignore_global
+  excludesfile = ~/.gitignore_global
   editor = vim
 [merge]
   tool = p4merge
