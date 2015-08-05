@@ -418,15 +418,13 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
-map <silent>tf :tabfirst<CR>
-map <silent>tl :tablast<CR>
-map <silent>tc :tablast <bar> tabnew<CR>
-map <silent>tx :tabclose<CR>
-" map <silent> tn :tabnext<CR>
-" map <silent> tp :tabprevious<CR>
+map <silent> tn :tabnext<CR>
+map <silent> tp :tabprevious<CR>
+map <silent> tf :tabfirst<CR>
+map <silent> tl :tablast<CR>
+map <silent> tc :tablast <bar> tabnew<CR>
+map <silent> tx :tabclose<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
