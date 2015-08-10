@@ -3,5 +3,9 @@
 $ git clone https://github.com/akihiroyajima/dotfiles.git ~/dotfiles --recursive
 $ sh install.sh
 ```
-- vim
-- zsh
+- .vimrc
+- .zshrc
+- .zprofile
+- .tmux.conf
+- .gitconfig
+- .tigrc
