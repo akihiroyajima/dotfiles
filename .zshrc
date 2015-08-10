@@ -48,10 +48,8 @@ ZSH_THEME="ys"
 plugins=(git)
 
 # User configuration
-
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -75,12 +73,11 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Config
-alias zshconfig='vim ~/.zshrc'
-alias vimconfig='vim ~/.vimrc'
-alias gitconfig='vim ~/.gitconfig'
-alias ohmyzsh='vim ~/.oh-my-zsh'
 PATH=$HOME/.cabal/bin:$PATH
+
+# ======================================================================
+# General
+# ======================================================================
 
 # Directory
 setopt MARK_DIRS
@@ -88,29 +85,64 @@ setopt auto_cd
 function chpwd() { ls -F }
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
+# npm
+export PATH="/usr/local/share/npm/bin:$PATH"
+
+# ======================================================================
+# Aliases
+# ======================================================================
+
+# Vim
+alias v='vim'
+export PATH=/usr/local/bin/usr/bin:$PATH
+
+# Tmux
+alias t="tmux"
+
+# Dotfiles
+alias dotfiles='cd ~/Documents/dotfiles'
+
+# Config
+alias zshconfig='v ~/.zshrc'
+alias vimconfig='v ~/.vimrc'
+alias gitconfig='v ~/.gitconfig'
+alias tmuxconfig="v ~/.tmux.conf"
+alias ohmyzsh='v ~/.oh-my-zsh'
+
+# Listing
 alias la='ls -a'
 alias lf='ls -F'
 alias ll='ls -l'
 alias lla='ls -la'
 
-alias dotfiles='cd ~/Documents/dotfiles'
-
-# Vim
-alias vi='vim'
-export PATH=/usr/local/bin/usr/bin:$PATH
-
 # Git
 alias g='git'
+
+## Branching
 alias gb='git branch'
+
+## Show status
 alias gs='git status'
+
+## Diff
 alias gd='git diff'
 alias gds='git diff --staged'
+
+## Staging
 alias ga.='git add .'
-alias gcm='git commit -m'
-alias gcam='git commit -am'
+
+## Committing
+alias gci='git commit -m'
+alias gcia='git commit -am'
+
+## Pushing
 alias gpod='git push origin develop'
 alias gps='git push'
+alias gpsso='git push --set-upstream origin'
+
+## Pulling
 alias gpl='git pull'
+alias gplso='git pull --set-upstream origin'
 alias gpm='git merge'
 alias gfo='git fetch origin'
 alias grod='git rebase origin/develop'
@@ -119,8 +151,9 @@ alias gsu='git submodule update --init --recursive'
 alias gcd='git checkout develop'
 alias gmnf='git merge --no-ff'
 
-# tmux
-alias t="tmux"
+# ======================================================================
+# Tmux
+# ======================================================================
 
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
 function is_osx() { [[ $OSTYPE == darwin* ]]; }
