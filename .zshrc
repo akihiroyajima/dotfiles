@@ -154,7 +154,7 @@ alias gpl='git pull'
 alias gplso='git pull --set-upstream origin'
 
 ## Merging
-alias gpm='git merge'
+alias gm='git merge'
 alias gmnf='git merge --no-ff'
 
 ## Fetching
