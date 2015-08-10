@@ -109,6 +109,12 @@ alias gitconfig='v ~/.gitconfig'
 alias tmuxconfig="v ~/.tmux.conf"
 alias ohmyzsh='v ~/.oh-my-zsh'
 
+alias reloadzsh='v ~/.zshrc'
+alias reloadvim='v ~/.vimrc'
+alias reloadgit='v ~/.gitconfig'
+alias reloadtmux="v ~/.tmux.conf"
+alias reloadohmyzsh='v ~/.oh-my-zsh'
+
 # Listing
 alias la='ls -a'
 alias lf='ls -F'
@@ -135,9 +141,6 @@ alias ga.='git add .'
 alias gci='git commit -m'
 alias gcia='git commit -am'
 
-## Checkout
-alias gcd='git checkout develop'
-
 ## Pushing
 alias gpod='git push origin develop'
 alias gps='git push'
@@ -146,22 +149,13 @@ alias gpsso='git push --set-upstream origin'
 ## Pulling
 alias gpl='git pull'
 alias gplso='git pull --set-upstream origin'
-
-## Merging
 alias gpm='git merge'
-alias gmnf='git merge --no-ff'
-
-## Fetching
 alias gfo='git fetch origin'
-
-## Rebasing
 alias grod='git rebase origin/develop'
-
-## Stashing
 alias gsp='git stash pop'
-
-## Submodule
 alias gsu='git submodule update --init --recursive'
+alias gcd='git checkout develop'
+alias gmnf='git merge --no-ff'
 
 # ======================================================================
 # Tmux
