@@ -170,6 +170,24 @@ alias gsp='git stash pop'
 ## Submodule
 alias gsu='git submodule update --init --recursive'
 
+# Git flow
+alias gfi='git flow init'
+
+## Feature
+alias gffs='git flow feature start'
+alias gfff='git flow feature finish'
+alias gffpu='git flow feature publish'
+alias gffpl='git flow feature pull'
+
+## Release
+alias gfrs='git flow release start'
+alias gfrpu='git flow release publish'
+alias gfrf='git flow release finish'
+
+## Hotfix
+alias gfhs='git flow hotfix start'
+alias gfhf='git flow hotfix finish'
+
 # ======================================================================
 # Tmux
 # ======================================================================
