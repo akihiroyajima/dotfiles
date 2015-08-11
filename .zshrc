@@ -109,11 +109,11 @@ alias gitconfig='v ~/.gitconfig'
 alias tmuxconfig="v ~/.tmux.conf"
 alias ohmyzsh='v ~/.oh-my-zsh'
 
-alias reloadzsh='v ~/.zshrc'
-alias reloadvim='v ~/.vimrc'
-alias reloadgit='v ~/.gitconfig'
-alias reloadtmux="v ~/.tmux.conf"
-alias reloadohmyzsh='v ~/.oh-my-zsh'
+alias sourcezsh='source ~/.zshrc'
+alias sourcevim='source ~/.vimrc'
+alias sourcegit='source ~/.gitconfig'
+alias sourcetmux="source ~/.tmux.conf"
+alias sourceohmyzsh='v ~/.oh-my-zsh'
 
 # Listing
 alias la='ls -a'
