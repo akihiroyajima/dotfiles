@@ -1,8 +1,8 @@
 [user]
-  name = akihiroyajima
-  email = akihiroyazima@gmail.com
+	name = akihiro yajima
+	email = akihiro.yajima@ietty.co.jp
 [core]
-  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/ietty/.gitignore_global
   editor = vim
 [merge]
   tool = p4merge
@@ -32,8 +32,8 @@
 [push]
   default = simple
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	trustExitCode = true

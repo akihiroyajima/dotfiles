@@ -453,13 +453,36 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
 
 " syntastic
-let g:syntastic_always_populate_loc_list=1
+
+"" Python
+let g:syntastic_python_checkers=['python', 'flake8']
+let g:syntastic_python_flake8_post_args='--ignore=W391'
+
+"" Activate
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'javascript', 'coffee', 'scss'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_javascript_checker = ['jshint']
+let g:syntastic_coffee_checkers = ['coffeelint']
+let g:syntastic_scss_checkers = ['scss_lint']
+
+"" Symbol
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
+
+"" Status line
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+hi SyntasticErrorSign ctermfg=160
+hi SyntasticWarningSign ctermfg=220
+
+"" Listing
+let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
-let g:syntastic_aggregate_errors = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " vim-gitgutter
 let g:gitgutter_sign_added = '✚'
@@ -526,10 +549,6 @@ let g:jedi#usages_command = "<leader>n"
 let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "0"
 let g:jedi#completions_command = "<C-Space>"
-
-" syntastic
-let g:syntastic_python_checkers=['python', 'flake8']
-let g:syntastic_python_flake8_post_args='--ignore=W391'
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
@@ -632,12 +651,7 @@ au BufRead,BufNewFile *.scss set filetype=sass
 
 "" JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-let g:syntastic_javascript_checker = "jshint"
 let g:SimpleJsIndenter_BriefMode = 1
-
-" Robocop
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
 
 " Closure
 imap " ""<Left>
