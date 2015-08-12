@@ -26,14 +26,14 @@
   pl = pull
   ps = push
   sh = show
-  st = status
+  st = stash
 [url "git@github.com:"]
   pushinsteadof = https://github.com/
 [push]
   default = simple
 [difftool "sourcetree"]
 	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	trustExitCode = true
