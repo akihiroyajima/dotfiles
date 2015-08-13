@@ -397,6 +397,10 @@ set autoread
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
+
+"" Replace the colon and semicolon
+noremap : ;
+
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
@@ -631,7 +635,7 @@ endif
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.html.erb"
 
 " emmet-vim
-let g:user_emmet_leader_key='<C-E>'
+let g:user_emmet_leader_key='<C-e>'
 let g:user_emmet_settings = {
       \    'variables': {
       \      'lang': "ja"
