@@ -83,6 +83,7 @@ endif
 "" Vim-Session
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
+NeoBundle 'tpope/vim-obsession'
 
 "" Snippets
 NeoBundle 'SirVer/ultisnips'
