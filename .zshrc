@@ -103,17 +103,16 @@ alias t="tmux"
 alias dotfiles='cd ~/Documents/dotfiles'
 
 # Config
-alias zshconfig='v ~/.zshrc'
-alias vimconfig='v ~/.vimrc'
-alias gitconfig='v ~/.gitconfig'
-alias tmuxconfig="v ~/.tmux.conf"
+alias zshconf='v ~/.zshrc'
+alias vimconf='v ~/.vimrc'
+alias gitconf='v ~/.gitconfig'
+alias tmuxconf="v ~/.tmux.conf"
 alias ohmyzsh='v ~/.oh-my-zsh'
 
 alias sourcezsh='source ~/.zshrc'
 alias sourcevim='source ~/.vimrc'
 alias sourcegit='source ~/.gitconfig'
-alias sourcetmux="source ~/.tmux.conf"
-alias sourceohmyzsh='v ~/.oh-my-zsh'
+alias sourcetmux="t source-file ~/.tmux.conf"
 
 # Listing
 alias la='ls -a'
