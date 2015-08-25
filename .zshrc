@@ -164,11 +164,11 @@ alias gfo='git fetch origin'
 alias grod='git rebase origin/develop'
 
 ## Stashing
-alias gst='git stash save'
-alias gsp='git stash pop'
-alias gsl='git stash list'
-alias gcd='git stash drop'
-alias gsc='git stash clear'
+alias gsts='git stash save'
+alias gstp='git stash pop'
+alias gstl='git stash list'
+alias gctd='git stash drop'
+alias gstc='git stash clear'
 
 ## Submodule
 alias gsu='git submodule update --init --recursive'
