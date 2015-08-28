@@ -92,7 +92,10 @@ NeoBundle 'honza/vim-snippets'
 
 "" Color
 NeoBundle 'tomasr/molokai'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'MaxSt/FlatColor'
 NeoBundle 'vim-scripts/desertEx'
+NeoBundle 'brafales/vim-desert256'
 NeoBundle 'stulzer/heroku-colorscheme'
 NeoBundle 'wellsjo/wells-colorscheme.vim'
 NeoBundle 'farseer90718/flattr.vim'
@@ -224,7 +227,7 @@ set number
 
 let no_buffers_menu=1
 if !exists('g:not_finsh_neobundle')
-  colorscheme molokai
+  colorscheme desertEx
 endif
 
 set cursorline
@@ -406,10 +409,6 @@ set autoread
 nnoremap ; :
 nnoremap : ;
 
-"" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
-
 "" Git
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
@@ -428,12 +427,12 @@ nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
 nnoremap <silent> <S-t> :tabnew<CR>
-map <silent> tn :tabnext<CR>
-map <silent> tp :tabprevious<CR>
-map <silent> tf :tabfirst<CR>
-map <silent> tl :tablast<CR>
-map <silent> tc :tablast <bar> tabnew<CR>
-map <silent> tx :tabclose<CR>
+nnoremap <silent> tn :tabnext<CR>
+nnoremap <silent> tp :tabprevious<CR>
+nnoremap <silent> tf :tabfirst<CR>
+nnoremap <silent> tl :tablast<CR>
+nnoremap <silent> tc :tablast <bar> tabnew<CR>
+nnoremap <silent> tx :tabclose<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
