@@ -777,6 +777,8 @@ set wildmenu wildmode=list:full
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " IndentLine
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#A4E57E'
 let g:indentLine_faster = 1
 let g:indentLine_char = '|'
 nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
