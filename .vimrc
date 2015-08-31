@@ -92,13 +92,18 @@ NeoBundle 'honza/vim-snippets'
 
 "" Color
 NeoBundle 'tomasr/molokai'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'MaxSt/FlatColor'
 NeoBundle 'vim-scripts/desertEx'
+NeoBundle 'brafales/vim-desert256'
 NeoBundle 'stulzer/heroku-colorscheme'
 NeoBundle 'wellsjo/wells-colorscheme.vim'
 NeoBundle 'farseer90718/flattr.vim'
 NeoBundle 'ajh17/Spacegray.vim'
 NeoBundle 'dsolstad/vim-wombat256i'
 NeoBundle 'NLKNguyen/papercolor-theme'
+NeoBundle 'mhumeSF/one-dark.vim'
+NeoBundle 'vim-scripts/Zenburn'
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
@@ -224,7 +229,7 @@ set number
 
 let no_buffers_menu=1
 if !exists('g:not_finsh_neobundle')
-  colorscheme molokai
+  colorscheme zenburn
 endif
 
 set cursorline
@@ -280,7 +285,7 @@ endif
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'zenburn'
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
@@ -434,12 +439,12 @@ nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
 nnoremap <silent> <S-t> :tabnew<CR>
-map <silent> tn :tabnext<CR>
-map <silent> tp :tabprevious<CR>
-map <silent> tf :tabfirst<CR>
-map <silent> tl :tablast<CR>
-map <silent> tc :tablast <bar> tabnew<CR>
-map <silent> tx :tabclose<CR>
+nnoremap <silent> tn :tabnext<CR>
+nnoremap <silent> tp :tabprevious<CR>
+nnoremap <silent> tf :tabfirst<CR>
+nnoremap <silent> tl :tablast<CR>
+nnoremap <silent> tc :tablast <bar> tabnew<CR>
+nnoremap <silent> tx :tabclose<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -782,6 +787,8 @@ set wildmenu wildmode=list:full
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " IndentLine
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#A4E57E'
 let g:indentLine_faster = 1
 let g:indentLine_char = '|'
 nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
