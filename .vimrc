@@ -102,6 +102,8 @@ NeoBundle 'farseer90718/flattr.vim'
 NeoBundle 'ajh17/Spacegray.vim'
 NeoBundle 'dsolstad/vim-wombat256i'
 NeoBundle 'NLKNguyen/papercolor-theme'
+NeoBundle 'mhumeSF/one-dark.vim'
+NeoBundle 'vim-scripts/Zenburn'
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
@@ -227,7 +229,7 @@ set number
 
 let no_buffers_menu=1
 if !exists('g:not_finsh_neobundle')
-  colorscheme desertEx
+  colorscheme zenburn
 endif
 
 set cursorline
@@ -283,7 +285,7 @@ endif
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'zenburn'
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
