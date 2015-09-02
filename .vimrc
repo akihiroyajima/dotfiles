@@ -233,11 +233,16 @@ if !exists('g:not_finsh_neobundle')
 endif
 
 set cursorline
-hi LineNr ctermfg=darkgray
+" hi LineNr ctermfg=darkgray
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
 set gfn=Monospace\ 10
+
+if $TERM_PROGRAM =~ "iTerm"
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+endif
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -337,7 +342,7 @@ let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 20
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <C-Y> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -736,7 +741,7 @@ if has('syntax')
 endif
 
 "" HTML
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.html.erb"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " emmet-vim
 let g:user_emmet_leader_key='<C-e>'
