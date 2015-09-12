@@ -444,8 +444,8 @@ nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
 nnoremap <silent> <S-t> :tabnew<CR>
-nnoremap <silent> tn :tabnext<CR>
-nnoremap <silent> tp :tabprevious<CR>
+nnoremap <silent> t] :tabnext<CR>
+nnoremap <silent> t[ :tabprevious<CR>
 nnoremap <silent> tf :tabfirst<CR>
 nnoremap <silent> tl :tablast<CR>
 nnoremap <silent> tc :tablast <bar> tabnew<CR>
