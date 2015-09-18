@@ -85,7 +85,7 @@ setopt auto_cd
 function chpwd() { ls -F }
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
-# npm
+# Node Pacage Manager
 export PATH="/usr/local/share/npm/bin:$PATH"
 
 # ======================================================================
@@ -103,11 +103,11 @@ alias t="tmux"
 alias dotfiles='cd ~/Documents/dotfiles'
 
 # Config
-alias zshconf='v ~/.zshrc'
-alias vimconf='v ~/.vimrc'
-alias gitconf='v ~/.gitconfig'
-alias tmuxconf="v ~/.tmux.conf"
-alias ohmyzsh='v ~/.oh-my-zsh'
+alias zshconf='vim ~/.zshrc'
+alias vimconf='vim ~/.vimrc'
+alias gitconf='vim ~/.gitconfig'
+alias tmuxconf='vim ~/.tmux.conf'
+alias ohmyzsh='vim ~/.oh-my-zsh'
 
 alias sourcezsh='source ~/.zshrc'
 alias sourcevim='source ~/.vimrc'
