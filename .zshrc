@@ -88,6 +88,9 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 # Node Pacage Manager
 export PATH="/usr/local/share/npm/bin:$PATH"
 
+# Disable suspend in the Ctrl-y
+stty dsusp undef
+
 # ======================================================================
 # Aliases
 # ======================================================================
