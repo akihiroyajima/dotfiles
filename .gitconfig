@@ -1,8 +1,8 @@
 [user]
-	name = akihiro yajima
-	email = akihiroyazima@gmail.com
+  name = akihiro yajima
+  email = akihiroyazima@gmail.com
 [core]
-	excludesfile = /Users/ietty/.gitignore_global
+  excludesfile = /Users/ietty/.gitignore_global
   editor = vim
 [merge]
   tool = p4merge
@@ -38,6 +38,6 @@
 	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	trustExitCode = true
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
