@@ -140,17 +140,17 @@ alias gds='git diff --staged'
 alias ga.='git add .'
 
 ## Committing
-alias gci='git commit -m'
-alias gcia='git commit -am'
+alias gcim='git commit -m'
+alias gciam='git commit -am'
 
 ## Pushing
-alias gpod='git push origin develop'
-alias gps='git push'
-alias gpsso='git push --set-upstream origin'
+alias gshod='git push origin develop'
+alias gsh='git push'
+alias gshso='git push --set-upstream origin'
 
 ## Pulling
-alias gpl='git pull'
-alias gplso='git pull --set-upstream origin'
+alias gll='git pull'
+alias gllso='git pull --set-upstream origin'
 
 ## Merging
 alias gm='git merge'
