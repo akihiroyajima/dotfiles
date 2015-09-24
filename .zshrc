@@ -103,7 +103,7 @@ export PATH=/usr/local/bin/usr/bin:$PATH
 alias t="tmux"
 
 # Dotfiles
-alias dotfiles='cd ~/Documents/dotfiles'
+alias dotfiles='cd ~/Development/dotfiles'
 
 # Config
 alias zshconf='vim ~/.zshrc'
