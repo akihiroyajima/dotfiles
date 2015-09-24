@@ -127,10 +127,10 @@ alias lla='ls -la'
 alias g='git'
 
 ## Branching
-alias gb='git branch'
+alias gbr='git branch'
 
 ## Checkout
-alias gcd='git checkout develop'
+alias gcod='git checkout develop'
 
 ## Show status
 alias gs='git status'
@@ -160,8 +160,8 @@ alias gm='git merge'
 alias gmnf='git merge --no-ff'
 
 ## Fetching
-alias gf='git fetch'
-alias gfo='git fetch origin'
+alias gft='git fetch'
+alias gfto='git fetch origin'
 
 ## Rebasing
 alias grod='git rebase origin/develop'
@@ -170,7 +170,7 @@ alias grod='git rebase origin/develop'
 alias gsts='git stash save'
 alias gstp='git stash pop'
 alias gstl='git stash list'
-alias gctd='git stash drop'
+alias gstd='git stash drop'
 alias gstc='git stash clear'
 
 ## Submodule
