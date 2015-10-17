@@ -259,3 +259,5 @@ function tmux_automatically_attach_session()
   fi
 }
 tmux_automatically_attach_session
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

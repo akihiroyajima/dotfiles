@@ -93,7 +93,8 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/desertEx'
 NeoBundle 'vim-scripts/Zenburn'
-NeoBundle 'kristijanhusak/vim-hybrid-material'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
+NeoBundle 'chriskempson/base16-vim'
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
@@ -122,13 +123,13 @@ NeoBundle 'pangloss/vim-javascript'
 
 "" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'gorodinskiy/vim-coloresque'
-NeoBundle 'tpope/vim-haml'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'taichouchou2/html5.vim'
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'AtsushiM/sass-compile.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'cakebaker/scss-syntax.vim'
 
 " Perl Bundle
 NeoBundle 'vim-perl/vim-perl'
@@ -155,18 +156,11 @@ NeoBundle "majutsushi/tagbar"
 NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
 
-"" Include user's extra bundle
-" if filereadable(expand("~/.vimrc.local.bundles"))
-" 	source ~/.vimrc.local.bundles
-" endif
-
 call neobundle#end()
 
 " Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
 NeoBundleCheck
 
 "*****************************************************************************
@@ -219,7 +213,7 @@ set number
 
 let no_buffers_menu=1
 if !exists('g:not_finsh_neobundle')
-  colorscheme molokai
+  colorscheme zenburn
 endif
 
 set cursorline
@@ -280,7 +274,7 @@ endif
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'zenburn'
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
@@ -732,6 +726,7 @@ endif
 
 "" HTML
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+autocmd BufRead,BufNewFile *.slim set ft=slim
 
 " emmet-vim
 let g:user_emmet_leader_key='<C-e>'
@@ -750,7 +745,7 @@ let g:sass_compile_file = ['scss', 'sass']
 let g:sass_started_dirs = []
 
 autocmd FileType less,sass  setlocal sw=2 sts=2 ts=2 et
-au BufRead,BufNewFile *.scss set filetype=sass
+au BufRead,BufNewFile *.scss set ft=sass
 
 "" JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
@@ -784,7 +779,7 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 " IndentLine
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#444'
-let g:indentLine_faster = 1
+" let g:indentLine_faster = 1
 let g:indentLine_char = '|'
 nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
 set list listchars=tab:▸\ ,eol:¬
