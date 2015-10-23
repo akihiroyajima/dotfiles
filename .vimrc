@@ -95,6 +95,7 @@ NeoBundle 'vim-scripts/desertEx'
 NeoBundle 'vim-scripts/Zenburn'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'chriskempson/base16-vim'
+NeoBundle 'altercation/vim-colors-solarized'
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
@@ -207,17 +208,20 @@ let g:session_command_aliases = 1
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
-syntax on
+syntax enable
 set ruler
 set number
-
+set background=dark
 let no_buffers_menu=1
+" solarized options
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+
 if !exists('g:not_finsh_neobundle')
-  colorscheme zenburn
+  colorscheme solarized
 endif
 
 set cursorline
-" hi LineNr ctermfg=darkgray
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
@@ -274,7 +278,7 @@ endif
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 
-let g:airline_theme = 'zenburn'
+let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
@@ -782,7 +786,7 @@ let g:indentLine_color_gui = '#444'
 " let g:indentLine_faster = 1
 let g:indentLine_char = '|'
 nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
-set list listchars=tab:▸\ ,eol:¬
+set list listchars=tab:▸\
 
 " Yank
 nmap p <Plug>(yankround-p)
