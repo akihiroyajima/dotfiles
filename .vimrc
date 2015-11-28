@@ -146,6 +146,7 @@ NeoBundle "fatih/vim-go"
 "" PHP Bundle
 NeoBundle 'violetyk/neocomplete-php.vim'
 NeoBundle 'arnaud-lb/vim-php-namespace'
+NeoBundle 'comeonly/php.vim-html-enhanced'
 
 "" Ruby Bundle
 NeoBundle "tpope/vim-rails"
@@ -756,8 +757,8 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 let g:SimpleJsIndenter_BriefMode = 1
 
 " Closure
-imap " ""<Left>
-imap ' ''<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
 
 " Escape from INSERT MODE
 inoremap <silent> jj <ESC>
