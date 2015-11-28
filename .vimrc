@@ -93,9 +93,8 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/desertEx'
 NeoBundle 'vim-scripts/Zenburn'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
-NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'trusktr/seti.vim'
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
