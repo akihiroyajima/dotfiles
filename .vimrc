@@ -91,10 +91,8 @@ NeoBundle 'honza/vim-snippets'
 
 "" Color
 NeoBundle 'tomasr/molokai'
-NeoBundle 'vim-scripts/desertEx'
 NeoBundle 'vim-scripts/Zenburn'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'trusktr/seti.vim'
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
@@ -331,7 +329,7 @@ let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 20
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -433,10 +431,10 @@ nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
 nnoremap <silent> <S-t> :tabnew<CR>
-nnoremap <C-w>c :tablast <bar> tabnew<CR>
-nnoremap <C-w>l :tabnext<CR>
-nnoremap <C-w>h :tabprevious<CR>
-nnoremap <C-w>x :tabclose<CR>
+nnoremap <C-w><C-c> :tablast <bar> tabnew<CR>
+nnoremap <C-w><C-l> :tabnext<CR>
+nnoremap <C-w><C-h> :tabprevious<CR>
+nnoremap <C-w><C-x> :tabclose<CR>
 nnoremap <silent> tf :tabfirst<CR>
 nnoremap <silent> tl :tablast<CR>
 
@@ -709,9 +707,9 @@ autocmd BufWritePre * :%s/\s\+$//ge
 
 "" Tabs. May be overriten by autocmd rules
 set expandtab
-set tabstop=2
+set tabstop=4
 set softtabstop=0
-set shiftwidth=2
+set shiftwidth=4
 set autoindent
 set smartindent
 
@@ -743,7 +741,7 @@ let g:user_emmet_settings = {
       \ }
 
 " Sass
-" let g:sass_compile_auto = 1
+let g:sass_compile_auto = 1
 let g:sass_compile_cdloop = 5
 let g:sass_compile_cssdir = ['css', 'stylesheet']
 let g:sass_compile_file = ['scss', 'sass']
@@ -802,6 +800,9 @@ set clipboard+=unnamed
 
 " Mouse
 set mouse=a
+
+" Incremental seach
+set incsearch
 
 " Submode
 call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')

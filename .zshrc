@@ -105,6 +105,12 @@ alias t="tmux"
 # Dotfiles
 alias dotfiles='cd ~/Development/dotfiles'
 
+# MAMP
+alias mamp='cd /Applications/MAMP'
+alias workspace='cd /Applications/MAMP/workspace'
+MYSQL_BIN="/Applications/MAMP/Library/bin"
+export PATH="$PATH:$MYSQL_BIN"
+
 # Config
 alias zshconf='vim ~/.zshrc'
 alias vimconf='vim ~/.vimrc'
