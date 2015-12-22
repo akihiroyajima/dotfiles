@@ -1,6 +1,6 @@
 [user]
-	name = 
-	email = 
+	name = Akihiro Yajima
+	email = akihiroyazima@gmail.com
 [core]
 	excludesfile = /Users/akihiroyajima/.gitignore_global
   editor = vim

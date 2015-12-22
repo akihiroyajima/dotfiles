@@ -112,8 +112,8 @@ MYSQL_BIN="/Applications/MAMP/Library/bin"
 export PATH="$PATH:$MYSQL_BIN"
 
 # Config
-alias zshconf='vim ~/.zshrc'
-alias vimconf='vim ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
+alias vimrc='vim ~/.vimrc'
 alias gitconf='vim ~/.gitconfig'
 alias tmuxconf='vim ~/.tmux.conf'
 alias ohmyzsh='vim ~/.oh-my-zsh'
