@@ -118,6 +118,9 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'moll/vim-node'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mattn/jscomplete-vim'
+NeoBundle 'vim-scripts/jQuery'
+NeoBundle 'jiangmiao/simple-javascript-indenter'
 
 "" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
@@ -486,35 +489,24 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return neocomplete#close_popup() . "\<CR>"
   " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " <BS>: close popup and delete backword char.
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
+inoremap <expr><C-y> neocomplete#close_popup()
+inoremap <expr><C-e> neocomplete#cancel_popup()
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
+inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 " For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
+inoremap <expr><Left> neocomplete#close_popup() . "\<Left>"
+inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+inoremap <expr><Up> neocomplete#close_popup() . "\<Up>"
+inoremap <expr><Down> neocomplete#close_popup() . "\<Down>"
 
 " AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+let g:neocomplete#enable_auto_select = 1
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -628,10 +620,6 @@ noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=lin
 
 "" Custom configs
 
-" Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
-
 " vim-python
 augroup vimrc-python
   autocmd!
@@ -650,19 +638,10 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "0"
 let g:jedi#completions_command = "<C-Space>"
 
-" Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
-
-let g:javascript_enable_domhtmlcss = 1
-
-let g:haskell_conceal_wide = 1
-let g:haskell_multiline_strings = 1
-let g:necoghc_enable_detailed_browse = 1
 autocmd Filetype haskell setlocal omnifunc=necoghc#omnifunc
 
 " Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
+nnoremap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 let g:tagbar_type_go = {
@@ -681,15 +660,11 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
-augroup vimrc-ruby
-  autocmd!
-  autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
-  autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-augroup END
+let g:javascript_enable_domhtmlcss = 1
 
-" Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
+let g:haskell_conceal_wide = 1
+let g:haskell_multiline_strings = 1
+let g:necoghc_enable_detailed_browse = 1
 
 let g:tagbar_type_ruby = {
       \ 'kinds' : [
@@ -713,6 +688,18 @@ set shiftwidth=4
 set autoindent
 set smartindent
 
+augroup vimrc-ruby
+  autocmd!
+  autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
+  autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+
+augroup vimrc-html
+  autocmd!
+  autocmd BufNewFile,BufRead *.html,*.tpl setlocal filetype=html
+  autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+
 " Display of double-byte space
 function! ZenkakuSpace()
   highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
@@ -734,9 +721,6 @@ autocmd BufRead,BufNewFile *.slim set ft=slim
 " emmet-vim
 let g:user_emmet_leader_key='<C-e>'
 let g:user_emmet_settings = {
-      \    'variables': {
-      \      'lang': "ja"
-      \    },
       \   'indentation': '  '
       \ }
 
@@ -751,8 +735,12 @@ autocmd FileType less,sass  setlocal sw=2 sts=2 ts=2 et
 au BufRead,BufNewFile *.scss set ft=sass
 
 "" JavaScript
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
 let g:SimpleJsIndenter_BriefMode = 1
+
+autocmd FileType javascript
+  \ :setl omnifunc=jscomplete#CompleteJS
+let g:jscomplete_use = ['dom', 'moz']
 
 " Closure
 inoremap " ""<Left>
@@ -780,11 +768,11 @@ set wildmenu wildmode=list:full
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " IndentLine
-let g:indentLine_color_term = 239
-let g:indentLine_color_gui = '#444'
+let g:indentLine_color_term = 237
+let g:indentLine_color_gui = '#002831'
 " let g:indentLine_faster = 1
 let g:indentLine_char = '|'
-nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
+nmap <silent> <Leader>i :<C-u>IndentLinesToggle<CR>
 set list listchars=tab:▸\
 
 " Yank
