@@ -179,6 +179,7 @@ set backspace=indent,eol,start
 
 "" Map leader to ,
 let mapleader=','
+noremap \  ,
 
 "" Enable hidden buffers
 set hidden
@@ -772,7 +773,7 @@ let g:indentLine_color_term = 236
 let g:indentLine_color_gui = '#333'
 " let g:indentLine_faster = 1
 let g:indentLine_char = '|'
-nmap <silent> <Leader>i :<C-u>IndentLinesToggle<CR>
+nnoremap <silent> <leader>i :<C-u>IndentLinesToggle<CR>
 set list listchars=tab:▸\
 
 " Yank
@@ -781,7 +782,7 @@ nmap P <Plug>(yankround-P)
 " nmap <C-p> <Plug>(yankround-prev)
 " nmap <C-n> <Plug>(yankround-next)
 let g:yankround_max_history = 50
-nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
+nnoremap <silent> <leader><C-p> :<C-u>CtrlPYankRound<CR>
 
 " Paste
 set clipboard+=unnamed
