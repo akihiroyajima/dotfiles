@@ -93,6 +93,7 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/Zenburn'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'w0ng/vim-hybrid'
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
@@ -105,7 +106,7 @@ NeoBundle 'vim-scripts/c.vim'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundleLazy 'tpope/vim-endwise', {
-      \ 'autoload' : { 'insert' : 1, }}
+      \ 'autoload': { 'insert': 1, }}
 
 "" Python Bundle
 NeoBundle 'davidhalter/jedi-vim'
@@ -117,7 +118,6 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'moll/vim-node'
-NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'vim-scripts/jQuery'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
@@ -435,10 +435,10 @@ nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
 nnoremap <silent> <S-t> :tabnew<CR>
-nnoremap <C-w><C-c> :tablast <bar> tabnew<CR>
-nnoremap <C-w><C-l> :tabnext<CR>
-nnoremap <C-w><C-h> :tabprevious<CR>
-nnoremap <C-w><C-x> :tabclose<CR>
+nnoremap <silent> <C-w><C-c> :tablast <bar> tabnew<CR>
+nnoremap <silent> <C-w><C-l> :tabnext<CR>
+nnoremap <silent> <C-w><C-h> :tabprevious<CR>
+nnoremap <silent> <C-w><C-x> :tabclose<CR>
 nnoremap <silent> tf :tabfirst<CR>
 nnoremap <silent> tl :tablast<CR>
 
@@ -500,11 +500,6 @@ inoremap <expr><C-y> neocomplete#close_popup()
 inoremap <expr><C-e> neocomplete#cancel_popup()
 " Close popup by <Space>.
 inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-" For cursor moving in insert mode(Not recommended)
-inoremap <expr><Left> neocomplete#close_popup() . "\<Left>"
-inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-inoremap <expr><Up> neocomplete#close_popup() . "\<Up>"
-inoremap <expr><Down> neocomplete#close_popup() . "\<Down>"
 
 " AutoComplPop like behavior.
 let g:neocomplete#enable_auto_select = 1
@@ -771,8 +766,8 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 " IndentLine
 let g:indentLine_color_term = 236
 let g:indentLine_color_gui = '#333'
-" let g:indentLine_faster = 1
-let g:indentLine_char = '|'
+let g:indentLine_faster = 1
+let g:indentLine_char = '¦'
 nnoremap <silent> <leader>i :<C-u>IndentLinesToggle<CR>
 set list listchars=tab:▸\
 
