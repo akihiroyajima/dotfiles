@@ -115,12 +115,13 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Yggdroot/indentLine'
 
 "" Javascript Bundle
-NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'moll/vim-node'
 NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'vim-scripts/jQuery'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
+NeoBundleLazy 'jelera/vim-javascript-syntax', {
+      \ 'autoload': { 'filetypes': ['javascript'] }}
 
 "" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
@@ -141,7 +142,6 @@ NeoBundle "dag/vim2hs"
 NeoBundle "pbrisbin/vim-syntax-shakespeare"
 
 "" Go Lang Bundle
-NeoBundle "majutsushi/tagbar"
 NeoBundle "fatih/vim-go"
 
 "" PHP Bundle
@@ -155,7 +155,6 @@ NeoBundle "tpope/vim-rake"
 NeoBundle "tpope/vim-projectionist"
 NeoBundle 'tpope/vim-endwise'
 NeoBundle "thoughtbot/vim-rspec"
-NeoBundle "majutsushi/tagbar"
 NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
 
@@ -403,9 +402,13 @@ set autoread
 "" Mappings
 "*****************************************************************************"
 
-"" Replace the colon and semicolon
+"" Replace
 nnoremap ; :
 nnoremap : ;
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -424,7 +427,7 @@ noremap <Leader>gsh :Gpush<CR>
 noremap <Leader>gll :Gpull<CR>
 noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
+noremap <Leader>gd :Gdiff<CR>
 noremap <Leader>gr :Gremove<CR>
 
 "" Session management
@@ -435,7 +438,7 @@ nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
 nnoremap <silent> <S-t> :tabnew<CR>
-nnoremap <silent> <C-w><C-c> :tablast <bar> tabnew<CR>
+nnoremap <silent> <C-w>c :tablast <bar> tabnew<CR>
 nnoremap <silent> <C-w><C-l> :tabnext<CR>
 nnoremap <silent> <C-w><C-h> :tabprevious<CR>
 nnoremap <silent> <C-w><C-x> :tabclose<CR>
@@ -547,9 +550,7 @@ let g:syntastic_python_checkers=['python', 'flake8']
 let g:syntastic_python_flake8_post_args='--ignore=W391'
 
 "" Activate
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'javascript', 'coffee', 'scss'] }
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checker = ['jshint']
+let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_scss_checkers = ['scss_lint']
 
@@ -567,9 +568,9 @@ hi SyntasticErrorSign ctermfg=160
 hi SyntasticWarningSign ctermfg=220
 
 "" Listing
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 " vim-gitgutter
@@ -637,7 +638,7 @@ let g:jedi#completions_command = "<C-Space>"
 autocmd Filetype haskell setlocal omnifunc=necoghc#omnifunc
 
 " Tagbar
-nnoremap <silent> <leader>t :TagbarToggle<CR>
+nnoremap <silent> <F3> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 let g:tagbar_type_go = {
@@ -710,10 +711,9 @@ if has('syntax')
   call ZenkakuSpace()
 endif
 
-"" HTML
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+" HTML
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tpl"
 autocmd BufRead,BufNewFile *.slim set ft=slim
-
 " emmet-vim
 let g:user_emmet_leader_key='<C-e>'
 let g:user_emmet_settings = {
@@ -727,16 +727,19 @@ let g:sass_compile_cssdir = ['css', 'stylesheet']
 let g:sass_compile_file = ['scss', 'sass']
 let g:sass_started_dirs = []
 
-autocmd FileType less,sass  setlocal sw=2 sts=2 ts=2 et
+autocmd FileType less,sass setlocal sw=2 sts=2 ts=2 et
 au BufRead,BufNewFile *.scss set ft=sass
 
 "" JavaScript
-au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
-let g:SimpleJsIndenter_BriefMode = 1
-
 autocmd FileType javascript
   \ :setl omnifunc=jscomplete#CompleteJS
+
+au BufRead,BufNewFile,BufReadPre *.js set ft=javascript syntax=jquery
+let g:SimpleJsIndenter_BriefMode = 1
 let g:jscomplete_use = ['dom', 'moz']
+
+"" PHP
+au BufRead,BufNewFile,BufReadPre *.php set ft=php
 
 " Closure
 inoremap " ""<Left>
