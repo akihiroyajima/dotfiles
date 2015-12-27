@@ -440,11 +440,11 @@ nnoremap <leader>sc :CloseSession<CR>
 "" Tabs
 nnoremap <silent> <S-t> :tabnew<CR>
 nnoremap <silent> <C-w>c :tablast <bar> tabnew<CR>
-nnoremap <silent> <C-w><C-l> :tabnext<CR>
-nnoremap <silent> <C-w><C-h> :tabprevious<CR>
 nnoremap <silent> <C-w><C-x> :tabclose<CR>
 nnoremap <silent> tf :tabfirst<CR>
 nnoremap <silent> tl :tablast<CR>
+nnoremap <silent> <Tab> :tabnext<CR>
+nnoremap <silent> <S-Tab> :tabprevious<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
