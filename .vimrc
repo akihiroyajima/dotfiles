@@ -746,7 +746,7 @@ au BufRead,BufNewFile,BufReadPre *.php set ft=php
 inoremap " ""<Left>
 inoremap ' ''<Left>
 
-" Parentheses supplement
+" Brackets supplement
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
