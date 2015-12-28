@@ -689,13 +689,13 @@ set smartindent
 augroup vimrc-ruby
   autocmd!
   autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
-  autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 et
 augroup END
 
 augroup vimrc-html
   autocmd!
   autocmd BufNewFile,BufRead *.html,*.tpl setlocal filetype=html
-  autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 et
 augroup END
 
 " Display of double-byte space
@@ -747,9 +747,9 @@ inoremap " ""<Left>
 inoremap ' ''<Left>
 
 " Brackets supplement
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+" inoremap {<Enter> {}<Left><CR><ESC><S-o>
+" inoremap [<Enter> []<Left><CR><ESC><S-o>
+" inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " Escape from INSERT MODE
 inoremap <silent> jj <ESC>
