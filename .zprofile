@@ -1,5 +1,9 @@
+# rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-alias onkeyboard="sudo kextload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext/"
-alias offkeyboard="sudo kextunload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext/"
+# PHP
+export PATH="$PATH:/Applications/MAMP/bin/php/php5.3.29/bin"
+
+# MySQL
+export PATH="$PATH:/Applications/MAMP/Library/bin"
