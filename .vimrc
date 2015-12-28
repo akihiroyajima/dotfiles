@@ -776,7 +776,7 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 let g:indentLine_color_term = 236
 let g:indentLine_color_gui = '#333'
 let g:indentLine_faster = 1
-let g:indentLine_char = '¦'
+let g:indentLine_char = '┆'
 nnoremap <silent> <leader>i :<C-u>IndentLinesToggle<CR>
 set list listchars=tab:▸\
 
