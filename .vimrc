@@ -281,7 +281,7 @@ let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 
 let g:airline_theme = 'solarized'
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -327,6 +327,7 @@ let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
+let g:NERDTreeShowHidden=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 20
@@ -439,11 +440,11 @@ nnoremap <leader>sc :CloseSession<CR>
 "" Tabs
 nnoremap <silent> <S-t> :tabnew<CR>
 nnoremap <silent> <C-w>c :tablast <bar> tabnew<CR>
-nnoremap <silent> <C-w><C-l> :tabnext<CR>
-nnoremap <silent> <C-w><C-h> :tabprevious<CR>
 nnoremap <silent> <C-w><C-x> :tabclose<CR>
 nnoremap <silent> tf :tabfirst<CR>
 nnoremap <silent> tl :tablast<CR>
+nnoremap <silent> <Tab> :tabnext<CR>
+nnoremap <silent> <S-Tab> :tabprevious<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -744,6 +745,11 @@ au BufRead,BufNewFile,BufReadPre *.php set ft=php
 " Closure
 inoremap " ""<Left>
 inoremap ' ''<Left>
+
+" Brackets supplement
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " Escape from INSERT MODE
 inoremap <silent> jj <ESC>
