@@ -226,8 +226,6 @@ endif
 set cursorline
 set mousemodel=popup
 set t_Co=256
-set guioptions=egmrti
-set gfn=Monospace\ 10
 
 if $TERM_PROGRAM =~ "iTerm"
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -236,8 +234,10 @@ endif
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
-    set guifont=Inconsolata\ for\ Powerline:h12
-    set transparency=7
+    set guifont=consolas:h12
+    set guioptions=ga
+    set transparency=0
+    hi CursorLineNr guifg=#657B84 guibg=#002B36
   endif
 else
   let g:CSApprox_loaded = 1
@@ -256,7 +256,6 @@ if &term =~ '256color'
 endif
 
 "" Disable the blinking cursor.
-set gcr=a:blinkon0
 set scrolloff=3
 
 "" Status bar
@@ -497,7 +496,7 @@ function! s:my_cr_function()
   return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 " <BS>: close popup and delete backword char.
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplete#close_popup()
@@ -728,19 +727,16 @@ let g:sass_compile_cssdir = ['css', 'stylesheet']
 let g:sass_compile_file = ['scss', 'sass']
 let g:sass_started_dirs = []
 
-autocmd FileType less,sass setlocal sw=2 sts=2 ts=2 et
-au BufRead,BufNewFile *.scss set ft=sass
+autocmd FileType less,sass setl sw=2 sts=2 ts=2 et
+au BufRead,BufNewFile *.scss setl ft=sass
 
 "" JavaScript
-autocmd FileType javascript
-  \ :setl omnifunc=jscomplete#CompleteJS
-
-au BufRead,BufNewFile,BufReadPre *.js set ft=javascript syntax=jquery
+au BufRead,BufNewFile,BufReadPre *.js setl ft=javascript syntax=jquery
 let g:SimpleJsIndenter_BriefMode = 1
 let g:jscomplete_use = ['dom', 'moz']
 
 "" PHP
-au BufRead,BufNewFile,BufReadPre *.php set ft=php
+au BufRead,BufNewFile,BufReadPre *.php setl ft=php
 
 " Closure
 inoremap " ""<Left>
@@ -774,7 +770,7 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " IndentLine
 let g:indentLine_color_term = 236
-let g:indentLine_color_gui = '#333'
+let g:indentLine_color_gui = '#3B3F3F'
 let g:indentLine_faster = 1
 let g:indentLine_char = '¦'
 nnoremap <silent> <leader>i :<C-u>IndentLinesToggle<CR>
