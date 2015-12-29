@@ -770,6 +770,7 @@ set wildmenu wildmode=list:full
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " IndentLine
+let g:indentLine_enabled = 1
 let g:indentLine_color_term = 236
 let g:indentLine_color_gui = '#3B3F3F'
 let g:indentLine_faster = 1
