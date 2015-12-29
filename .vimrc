@@ -214,6 +214,7 @@ syntax enable
 set ruler
 set number
 set background=dark
+set linespace=2
 let no_buffers_menu=1
 " solarized options
 let g:solarized_visibility = "high"
