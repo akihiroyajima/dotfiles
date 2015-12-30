@@ -683,7 +683,6 @@ set expandtab
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
-set autoindent
 set smartindent
 
 augroup vimrc-ruby
@@ -740,6 +739,7 @@ let g:SimpleJsIndenter_BriefMode = 1
 let g:jscomplete_use = ['dom', 'moz']
 
 "" PHP
+autocmd FileType php setlocal sw=4 sts=4 ts=4 et
 au BufRead,BufNewFile,BufReadPre *.php set ft=php
 
 " Closure
@@ -747,9 +747,9 @@ inoremap " ""<Left>
 inoremap ' ''<Left>
 
 " Brackets supplement
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+" inoremap {<Enter> {}<Left><CR><ESC><S-o>
+" inoremap [<Enter> []<Left><CR><ESC><S-o>
+" inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " Escape from INSERT MODE
 inoremap <silent> jj <ESC>
