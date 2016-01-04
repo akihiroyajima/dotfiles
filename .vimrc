@@ -237,6 +237,7 @@ if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
     set guifont=consolas:h12
     set guioptions=ga
+    set t_Co=8 t_md=
     set transparency=0
     hi CursorLineNr guifg=#657B84 guibg=#002B36
   endif
