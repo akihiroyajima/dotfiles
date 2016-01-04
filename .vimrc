@@ -684,7 +684,10 @@ set expandtab
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
+set autoindent
 set smartindent
+
+set nowrap
 
 augroup vimrc-ruby
   autocmd!
@@ -745,9 +748,9 @@ inoremap " ""<Left>
 inoremap ' ''<Left>
 
 " Brackets supplement
-" inoremap {<Enter> {}<Left><CR><ESC><S-o>
-" inoremap [<Enter> []<Left><CR><ESC><S-o>
-" inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " Escape from INSERT MODE
 inoremap <silent> jj <ESC>
