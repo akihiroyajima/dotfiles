@@ -238,6 +238,7 @@ if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
     set guifont=consolas:h12
     set guioptions=ga
+    set t_Co=8 t_md=
     set transparency=0
     hi CursorLineNr guifg=#657B84 guibg=#002B36
   endif
@@ -686,10 +687,13 @@ set expandtab
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
+set autoindent
 set smartindent
 set autoindent
 set modifiable
 set write
+
+set nowrap
 
 augroup vimrc-ruby
   autocmd!
@@ -750,9 +754,9 @@ inoremap " ""<Left>
 inoremap ' ''<Left>
 
 " Brackets supplement
-" inoremap {<Enter> {}<Left><CR><ESC><S-o>
-" inoremap [<Enter> []<Left><CR><ESC><S-o>
-" inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " Escape from INSERT MODE
 inoremap <silent> jj <ESC>
