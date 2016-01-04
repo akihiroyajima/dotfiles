@@ -684,7 +684,6 @@ set expandtab
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
-set autoindent
 set smartindent
 
 augroup vimrc-ruby
@@ -738,6 +737,7 @@ let g:SimpleJsIndenter_BriefMode = 1
 let g:jscomplete_use = ['dom', 'moz']
 
 "" PHP
+autocmd FileType php setlocal sw=4 sts=4 ts=4 et
 au BufRead,BufNewFile,BufReadPre *.php setl ft=php
 
 " Closure
