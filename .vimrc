@@ -148,6 +148,7 @@ NeoBundle "fatih/vim-go"
 NeoBundle 'violetyk/neocomplete-php.vim'
 NeoBundle 'arnaud-lb/vim-php-namespace'
 NeoBundle 'comeonly/php.vim-html-enhanced'
+NeoBundle '2072/PHP-Indenting-for-VIm'
 
 "" Ruby Bundle
 NeoBundle "tpope/vim-rails"
@@ -345,6 +346,8 @@ nnoremap [q :cprevious
 nnoremap ]q :cnext
 nnoremap [Q :cfirst
 nnoremap ]Q :clast
+let QFix_Edit = 'tab'
+set switchbuf+=usetab,newtab
 
 " vimshell.vim
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
@@ -684,6 +687,9 @@ set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set smartindent
+set autoindent
+set modifiable
+set write
 
 augroup vimrc-ruby
   autocmd!
