@@ -86,7 +86,7 @@ function chpwd() { ls -F }
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
 # Node Pacage Manager
-export PATH="/usr/local/share/npm/bin:$PATH"
+export PATH=/usr/local/share/npm/bin:$PATH
 
 # Disable suspend in the Ctrl-y
 stty dsusp undef
@@ -96,8 +96,6 @@ stty dsusp undef
 # ======================================================================
 
 # Vim
-alias v='vim'
-export PATH=/usr/local/bin/usr/bin:$PATH
 
 # Tmux
 alias t="tmux"
@@ -110,11 +108,12 @@ alias mamp='cd /Applications/MAMP'
 alias workspace='cd /Applications/MAMP/workspace'
 
 # Config
-alias zshrc='vim ~/.zshrc'
-alias vimrc='vim ~/.vimrc'
-alias gitconf='vim ~/.gitconfig'
-alias tmuxconf='vim ~/.tmux.conf'
-alias ohmyzsh='vim ~/.oh-my-zsh'
+alias zshrc='vi ~/.zshrc'
+alias zprofile='vi ~/.zprofile'
+alias vimrc='vi ~/.vimrc'
+alias gitconf='vi ~/.gitconfig'
+alias tmuxconf='vi ~/.tmux.conf'
+alias ohmyzsh='vi ~/.oh-my-zsh'
 
 alias sourcezsh='source ~/.zshrc'
 alias sourcevim='source ~/.vimrc'
