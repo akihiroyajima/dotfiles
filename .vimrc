@@ -237,7 +237,6 @@ if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
     set guifont=consolas:h12
     set guioptions=ga
-    set t_Co=8 t_md=
     set transparency=0
     hi CursorLineNr guifg=#657B84 guibg=#002B36
   endif
@@ -299,10 +298,10 @@ else
   let g:airline#extensions#tabline#left_alt_sep = '|'
 
   " powerline symbols
-  let g:airline_left_sep = '>'
-  let g:airline_left_alt_sep = '>'
-  let g:airline_right_sep = '<'
-  let g:airline_right_alt_sep = '<'
+  let g:airline_left_sep = '⮀'
+  let g:airline_left_alt_sep = '⮀'
+  let g:airline_right_sep = '⮂'
+  let g:airline_right_alt_sep = '⮂'
   let g:airline_symbols.branch = '⭠'
   let g:airline_symbols.readonly = '⭤'
   let g:airline_symbols.linenr = '⭡'
