@@ -61,6 +61,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
@@ -286,26 +287,30 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 1
+let g:tmuxline_theme = 'airline'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
 if !exists('g:airline_powerline_fonts')
+  let g:airline_left_sep = '>'
+  let g:airline_left_alt_sep = '>'
+  let g:airline_right_sep = '<'
+  let g:airline_right_alt_sep = '<'
   let g:airline#extensions#tabline#left_sep = ' '
   let g:airline#extensions#tabline#left_alt_sep = '|'
 else
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
-
-  " powerline symbols
   let g:airline_left_sep = '⮀'
-  let g:airline_left_alt_sep = '⮀'
+  let g:airline_left_alt_sep = ''
   let g:airline_right_sep = '⮂'
-  let g:airline_right_alt_sep = '⮂'
+  let g:airline_right_alt_sep = ''
   let g:airline_symbols.branch = '⭠'
   let g:airline_symbols.readonly = '⭤'
   let g:airline_symbols.linenr = '⭡'
+  let g:airline#extensions#tabline#left_sep = '⮀'
+  let g:airline#extensions#tabline#left_alt_sep = ''
 endif
 
 "*****************************************************************************
@@ -744,7 +749,7 @@ let g:SimpleJsIndenter_BriefMode = 1
 let g:jscomplete_use = ['dom', 'moz']
 
 "" PHP
-autocmd FileType php setlocal sw=4 sts=4 ts=4 et
+autocmd FileType php setl sw=4 sts=0 ts=4 et
 au BufRead,BufNewFile,BufReadPre *.php setl ft=php
 
 " Closure
