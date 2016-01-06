@@ -688,7 +688,6 @@ set softtabstop=0
 set shiftwidth=4
 set autoindent
 set smartindent
-set autoindent
 set modifiable
 set write
 
