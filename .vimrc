@@ -147,9 +147,6 @@ NeoBundle "fatih/vim-go"
 
 "" PHP Bundle
 NeoBundle 'violetyk/neocomplete-php.vim'
-NeoBundle 'arnaud-lb/vim-php-namespace'
-NeoBundle 'comeonly/php.vim-html-enhanced'
-NeoBundle '2072/PHP-Indenting-for-VIm'
 
 "" Ruby Bundle
 NeoBundle "tpope/vim-rails"
