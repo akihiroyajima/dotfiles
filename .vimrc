@@ -150,6 +150,7 @@ NeoBundle 'violetyk/neocomplete-php.vim'
 NeoBundle 'arnaud-lb/vim-php-namespace'
 NeoBundle 'comeonly/php.vim-html-enhanced'
 NeoBundle '2072/PHP-Indenting-for-VIm'
+NeoBundle 'joonty/vdebug'
 
 "" Ruby Bundle
 NeoBundle "tpope/vim-rails"
@@ -719,7 +720,7 @@ if has('syntax')
   augroup ZenkakuSpace
     autocmd!
     autocmd ColorScheme * call ZenkakuSpace()
-    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+    autocmd VimEnter,WinEnter,BufRead * let w:m3=matchadd('ZenkakuSpace', '　')
   augroup END
   call ZenkakuSpace()
 endif
