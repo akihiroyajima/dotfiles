@@ -8,15 +8,6 @@
   tool = vimdiff
 [mergetool]
   keepBackUp = false
-[mergetool "p4merge"]
-  cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-  path = p4merge
-  keepTemporaries = false
-  trustExitCode = false
-[diff]
-  tool = p4merge
-[difftool "p4merge"]
-  cmd = /Applications/P4V/p4merge.app/Contents/Resources/launchp4merge "\"$REMOTE\"" "\"$LOCAL\""
 [alias]
   ad = add
   br = branch
@@ -31,12 +22,6 @@
   pushinsteadof = https://github.com/
 [push]
   default = simple
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Users/akihiroyajima/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [filter "lfs"]
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
