@@ -171,6 +171,7 @@ alias grod='git rebase origin/develop'
 
 ## Stashing
 alias gsts='git stash save'
+alias gsta='git stash apply'
 alias gstp='git stash pop'
 alias gstl='git stash list'
 alias gstd='git stash drop'
