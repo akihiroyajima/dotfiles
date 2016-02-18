@@ -612,7 +612,7 @@ noremap <leader>x :bn<CR>
 noremap <leader>w :bn<CR>
 
 "" Close buffer
-noremap <leader>c :bd<CR>
+noremap <leader>c :bd
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
