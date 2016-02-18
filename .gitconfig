@@ -5,7 +5,7 @@
 	excludesfile = /Users/akihiroyajima/.gitignore_global
   editor = vim
 [merge]
-  tool = p4merge
+  tool = vimdiff
 [mergetool]
   keepBackUp = false
 [mergetool "p4merge"]
