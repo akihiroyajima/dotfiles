@@ -818,5 +818,5 @@ call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
-" Determining the current directory
+" Determining the current location
 nnoremap <leader>d :echo expand("%")<CR>
