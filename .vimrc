@@ -467,8 +467,9 @@ nnoremap <silent> <C-w>c :tablast <bar> tabnew<CR>
 nnoremap <silent> <C-w><C-x> :tabclose<CR>
 nnoremap <silent> tf :tabfirst<CR>
 nnoremap <silent> tl :tablast<CR>
-nnoremap <silent> <Tab> :tabnext<CR>
-nnoremap <silent> <S-Tab> :tabprevious<CR>
+nnoremap <silent> <C-w><C-h> :tabnext<CR>
+nnoremap <leader>z :tabprevious<CR>
+nnoremap <leader>x :tabnext<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -622,9 +623,7 @@ if has('macunix')
 endif
 
 "" Buffer nav
-noremap <leader>z :bp<CR>
 noremap <leader>q :bp<CR>
-noremap <leader>x :bn<CR>
 noremap <leader>w :bn<CR>
 
 "" Close buffer
