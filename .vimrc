@@ -743,7 +743,7 @@ endif
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tpl"
 autocmd BufRead,BufNewFile *.slim set ft=slim
 " emmet-vim
-let g:user_emmet_leader_key='<C-e>'
+let g:user_emmet_leader_key = '<C-e>'
 let g:user_emmet_settings = {
       \   'indentation': '  '
       \ }
