@@ -439,7 +439,7 @@ nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
-" session management
+" Session management
 let g:session_directory = "~/.vim/session"
 let g:session_command_aliases = 1
 
