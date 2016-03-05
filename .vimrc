@@ -203,12 +203,6 @@ set fileformats=unix,dos,mac
 set showcmd
 set shell=/bin/sh
 
-" session management
-let g:session_directory = "~/.vim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
-
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
@@ -444,6 +438,28 @@ nnoremap <leader>so :OpenSession
 nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
+
+" session management
+let g:session_directory = "~/.vim/session"
+let g:session_command_aliases = 1
+
+" Get .vimsessions/ under current directly
+let s:local_session_directory = xolox#misc#path#merge(getcwd(), '.vimsessions')
+" If it exists
+if isdirectory(s:local_session_directory)
+  " Setting the saved session directory to the directory
+  let g:session_directory = s:local_session_directory
+  " When Vim is closed, Vim save it automatically
+  let g:session_autosave = 'yes'
+  " When Vim is started without an argument, It open default.vim of the saved session directory
+  let g:session_autoload = 'yes'
+  " Save it automatically once a time
+  let g:session_autosave_periodic = 1
+else
+  let g:session_autosave = 'no'
+  let g:session_autoload = 'no'
+endif
+unlet s:local_session_directory
 
 "" Tabs
 nnoremap <silent> <S-t> :tabnew<CR>
