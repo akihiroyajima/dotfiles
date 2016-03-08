@@ -61,6 +61,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'bling/vim-airline'
@@ -564,7 +565,7 @@ noremap <leader>b :CtrlPBuffer<CR>
 let g:ctrlp_map = '<leader>p'
 let g:ctrlp_open_new_file = 'r'
 
-
+"" Unite.vim
 " The prefix key.
 nnoremap  [unite] <Nop>
 nmap <Leader>u [unite]
@@ -580,15 +581,15 @@ nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
 nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
 nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> ,vr :UniteResume<CR>
+nnoremap <silent> <Leader>vr :UniteResume<CR>
 
 " vinarise
 let g:vinarise_enable_auto_detect = 1
 
 " unite-build map
-nnoremap <silent> ,vb :Unite build<CR>
-nnoremap <silent> ,vcb :Unite build:!<CR>
-nnoremap <silent> ,vch :UniteBuildClearHighlight<CR>
+nnoremap <silent> <Leader>vb :Unite build<CR>
+nnoremap <silent> <Leader>vcb :Unite build:!<CR>
+nnoremap <silent> <Leader>vch :UniteBuildClearHighlight<CR>
 
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--nocolor --nogroup'
@@ -597,6 +598,65 @@ let g:unite_source_grep_recursive_opt = ''
 
 " handy keymaps for unite-grep
 vnoremap /g y:Unite grep::-iRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
+
+"" VimFiler
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
+" Edit file by tabedit.
+let g:vimfiler_edit_action = 'edit'
+" Icons.
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_marked_file_icon = '*'
+nnoremap <F4>  :VimFiler -split -horizontal -project -toggle -quit<CR>
+autocmd FileType vimfiler nnoremap <buffer><silent>/  :<C-u>Unite file -default-action=vimfiler<CR>
+autocmd FileType vimfiler nnoremap <silent><buffer> e :call <SID>vimfiler_tree_edit('open')<CR>
+
+function! s:vimfiler_tree_edit(method) "{{{4
+    " let file = vimfiler#get_file()
+    " if empty(file) || empty(a:method) | return | endif
+    " let path = file.action__path
+    " wincmd p
+    " execute a:method
+    " exe 'edit' path
+    if empty(a:method) | return | endif
+    let linenr = line('.')
+    let context = s:vimfiler_create_action_context(a:method, linenr)
+    wincmd p
+    " call vimfiler#mappings#do_action(a:method, linenr)
+    call context.execute()
+    unlet context
+endfunction
+
+function! s:vimfiler_create_action_context(action, ...) " {{{4
+    let cursor_linenr = get(a:000, 0, line('.'))
+    let vimfiler = vimfiler#get_current_vimfiler()
+    let marked_files = vimfiler#get_marked_files()
+    if empty(marked_files)
+        let marked_files = [ vimfiler#get_file(cursor_linenr) ]
+    endif
+
+    let context = s:vimfiler_context.new({
+    'action' : a:action,
+    'files' : marked_files,
+    'current_dir' : vimfiler.current_dir,
+    })
+    return context
+endfunction
+
+let s:vimfiler_context = {} " {{{4
+function! s:vimfiler_context.new(...)
+    let dict = get(a:000, 0, {})
+    return extend(dict, self)
+endfunction
+
+function! s:vimfiler_context.execute()
+  call unite#mappings#do_action(self.action, self.files, {
+         'vimfiler__current_directory' : self.current_dir,
+         })
+endfunction
 
 " snippets
 let g:UltiSnipsExpandTrigger="<TAB>"
@@ -696,7 +756,7 @@ let g:jedi#completions_command = "<C-Space>"
 
 autocmd Filetype haskell setlocal omnifunc=necoghc#omnifunc
 
-" Tagbar
+"" Tagbar
 nnoremap <silent> <F3> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
