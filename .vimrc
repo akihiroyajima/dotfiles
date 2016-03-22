@@ -60,6 +60,7 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
+NeoBundle 'Shougo/neoyank.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'LeafCage/yankround.vim'
@@ -226,6 +227,7 @@ endif
 set cursorline
 set mousemodel=popup
 set t_Co=256
+set linespace=0
 
 if $TERM_PROGRAM =~ "iTerm"
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -234,7 +236,7 @@ endif
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
-    set guifont=consolas:h12
+    set guifont=Menlo\ for\ Powerline:h11
     set guioptions=ga
     set transparency=0
     hi CursorLineNr guifg=#657B84 guibg=#002B36
@@ -571,16 +573,15 @@ nnoremap  [unite] <Nop>
 nmap <Leader>u [unite]
 
 " unite.vim keymap
-let g:unite_source_history_yank_enable =1
-nnoremap <silent> [unite]u :<C-u>Unite<Space>file<CR>
+nnoremap <silent> [unite]u :<C-u>VimFiler<CR>
+nnoremap <silent> [unite]c :<C-u>VimFilerBufferDir<CR>
 nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
-nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer<CR>
-nnoremap <silent> [unite]b :<C-u>Unite<Space>bookmark<CR>
+nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> [unite]m :<C-u>Unite<Space>bookmark<CR>
 nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
-nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
+nnoremap <silent> [unite]f :<C-u>Unite<Space>file_mru<CR>
 nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
 nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> <Leader>vr :UniteResume<CR>
 
 " vinarise
@@ -610,7 +611,7 @@ let g:vimfiler_tree_opened_icon = '▾'
 let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_file_icon = '-'
 let g:vimfiler_marked_file_icon = '*'
-nnoremap <F4>  :VimFiler -split -horizontal -project -toggle -quit<CR>
+nnoremap <F4> :<C-u>VimFiler<CR>
 autocmd FileType vimfiler nnoremap <buffer><silent>/  :<C-u>Unite file -default-action=vimfiler<CR>
 autocmd FileType vimfiler nnoremap <silent><buffer> e :call <SID>vimfiler_tree_edit('open')<CR>
 
@@ -646,7 +647,7 @@ function! s:vimfiler_create_action_context(action, ...) " {{{4
     return context
 endfunction
 
-let s:vimfiler_context = {} " {{{4
+let s:vimfiler_context = {}
 function! s:vimfiler_context.new(...)
     let dict = get(a:000, 0, {})
     return extend(dict, self)

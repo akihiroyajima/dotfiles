@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME='ys'
+ZSH_THEME='nodeys'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -48,7 +48,7 @@ ZSH_THEME='ys'
 plugins=(git)
 
 # User configuration
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 
@@ -96,6 +96,7 @@ stty dsusp undef
 # ======================================================================
 
 # Vim
+alias vi="vim"
 
 # Tmux
 alias t="tmux"
@@ -263,5 +264,3 @@ function tmux_automatically_attach_session()
   fi
 }
 tmux_automatically_attach_session
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
