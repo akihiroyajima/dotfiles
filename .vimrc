@@ -110,7 +110,7 @@ let g:vim_bootstrap_editor = "vim"  " nvim or vim
 
 "" Custom bundles
 NeoBundle 'vim-scripts/c.vim'
-NeoBundle 'tyru/caw.vim.git'
+" NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundleLazy 'tpope/vim-endwise', {
       \ 'autoload': { 'insert': 1, }}
