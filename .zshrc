@@ -175,6 +175,7 @@ alias gsts='git stash save'
 alias gsta='git stash apply'
 alias gstp='git stash pop'
 alias gstl='git stash list'
+alias gsth='git stash show'
 alias gstd='git stash drop'
 alias gstc='git stash clear'
 
@@ -198,6 +199,9 @@ alias gfrf='git flow release finish'
 ## Hotfix
 alias gfhs='git flow hotfix start'
 alias gfhf='git flow hotfix finish'
+
+# Tig
+alias tiga='tig --all'
 
 # ======================================================================
 # Tmux

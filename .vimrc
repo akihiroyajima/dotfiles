@@ -286,7 +286,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#tmuxline#enabled = 1
 let g:tmuxline_theme = 'airline'
 
 if !exists('g:airline_symbols')
@@ -850,7 +850,7 @@ let g:indentLine_enabled = 1
 let g:indentLine_color_term = 236
 let g:indentLine_color_gui = '#3B3F3F'
 let g:indentLine_faster = 1
-let g:indentLine_char = '¦'
+let g:indentLine_char = '│'
 nnoremap <silent> <leader>i :<C-u>IndentLinesToggle<CR>
 set list listchars=tab:▸\
 
@@ -874,12 +874,12 @@ set incsearch
 " Submode
 call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
 call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+" call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+" call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
 call submode#map('bufmove', 'n', '', '>', '<C-w>>')
 call submode#map('bufmove', 'n', '', '<', '<C-w><')
-call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+" call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+" call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
 " Determining the current location
 nnoremap <leader>d :echo expand("%")<CR>
