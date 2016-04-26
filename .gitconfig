@@ -1,34 +1,38 @@
 [user]
-	name = 
-	email = 
+	name = akihiroyajima
+	email = akihiroyazima@gmail.com
 [core]
 	excludesfile = /Users/akihiroyajima/.gitignore_global
-  editor = vim
-[merge]
-  tool = vimdiff
-[mergetool]
-  keepBackUp = false
+	editor = vim
 [alias]
-  ad = add
-  br = branch
-  ci = commit
-  co = checkout
-  ft = fetch
-  pl = pull
-  ps = push
-  sh = show
-  st = stash
+	ad = add
+	br = branch
+	ci = commit
+	co = checkout
+	ft = fetch
+	pl = pull
+	ps = push
+	sh = show
+	st = stash
 [url "git@github.com:"]
-  pushinsteadof = https://github.com/
+	pushinsteadof = https://github.com/
 [push]
-  default = simple
+	default = simple
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
-  required = true
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
