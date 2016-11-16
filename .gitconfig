@@ -1,5 +1,5 @@
 [user]
-	name = akihiroyajima
+	name = Akihiro Yajima
 	email = akihiroyazima@gmail.com
 [core]
 	excludesfile = /Users/akihiroyajima/.gitignore_global
@@ -24,6 +24,7 @@
 	required = true
 [diff]
 	tool = vimdiff
+	compactionHeuristic = true
 [difftool]
 	prompt = false
 [merge]
@@ -32,7 +33,11 @@
 	prompt = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
