@@ -110,6 +110,7 @@ let g:vim_bootstrap_editor = "vim"  " nvim or vim
 
 "" Custom bundles
 NeoBundle 'vim-scripts/c.vim'
+NeoBundle 'szw/vim-tags'
 " NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundleLazy 'tpope/vim-endwise', {
@@ -122,7 +123,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Yggdroot/indentLine'
 
 "" Javascript Bundle
-NeoBundle 'kchmck/vim-coffee-script'
+" NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'moll/vim-node'
 NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'vim-scripts/jQuery'
@@ -132,10 +133,10 @@ NeoBundleLazy 'jelera/vim-javascript-syntax', {
 
 "" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
-NeoBundle 'gorodinskiy/vim-coloresque'
+" NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'mattn/emmet-vim'
-NeoBundle 'taichouchou2/html5.vim'
-NeoBundle 'slim-template/vim-slim'
+" NeoBundle 'taichouchou2/html5.vim'
+" NeoBundle 'slim-template/vim-slim'
 NeoBundle 'AtsushiM/sass-compile.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
@@ -177,14 +178,15 @@ NeoBundleCheck
 "" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileformats=unix,dos,mac
 
 "" Fix backspace indent
 set backspace=indent,eol,start
 
-"" Map leader to ,
-let mapleader=','
-noremap \  ,
+"" Map leader to Space
+let mapleader=' '
+" noremap <Space> <Nop>
 
 "" Enable hidden buffers
 set hidden
@@ -199,13 +201,15 @@ set bomb
 set binary
 set ttyfast
 
-"" Directories for swp files
+"" Directories for swap files
 set nobackup
 set noswapfile
 
 set fileformats=unix,dos,mac
 set showcmd
 set shell=/bin/sh
+
+set completeopt=menuone
 
 "*****************************************************************************
 "" Visual Settings
@@ -337,7 +341,7 @@ let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 20
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-nnoremap <silent> <F2> :NERDTreeFind<CR>
+nnoremap <silent> <Leader>n :NERDTreeFind<CR>
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
 " grep.vim
@@ -448,7 +452,7 @@ let g:session_directory = "~/.vim/session"
 let g:session_command_aliases = 1
 
 " Get .vimsessions/ under current directly
-let s:local_session_directory = xolox#misc#path#merge(getcwd(), '.vimsessions')
+let s:local_session_directory = xolox#misc#path#merge(getcwd(), '.visess')
 " If it exists
 if isdirectory(s:local_session_directory)
   " Setting the saved session directory to the directory
@@ -465,6 +469,12 @@ else
 endif
 unlet s:local_session_directory
 
+"" Reload opening files
+augroup vimrc-checktime
+    autocmd!
+    autocmd WinEnter * checktime
+augroup END
+
 "" Tabs
 nnoremap <silent> <S-t> :tabnew<CR>
 nnoremap <silent> <C-w>c :tablast <bar> tabnew<CR>
@@ -472,8 +482,8 @@ nnoremap <silent> <C-w><C-x> :tabclose<CR>
 nnoremap <silent> tf :tabfirst<CR>
 nnoremap <silent> tl :tablast<CR>
 nnoremap <silent> <C-w><C-h> :tabnext<CR>
-nnoremap <leader>z :tabprevious<CR>
-nnoremap <leader>x :tabnext<CR>
+nnoremap <leader>q :tabprevious<CR>
+nnoremap <leader>w :tabnext<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -671,8 +681,8 @@ if has('macunix')
 endif
 
 "" Buffer nav
-noremap <leader>q :bp<CR>
-noremap <leader>w :bn<CR>
+noremap <leader>z :bp<CR>
+noremap <leader>x :bn<CR>
 
 "" Close buffer
 noremap <leader>c :bd
@@ -709,8 +719,11 @@ let g:jedi#completions_command = "<C-Space>"
 
 autocmd Filetype haskell setlocal omnifunc=necoghc#omnifunc
 
+" vim-tags
+au BufNewFile,BufRead *.php let g:vim_tags_project_tags_command = "ctags --languages=php -f .git/tags"
+
 "" Tagbar
-nnoremap <silent> <F3> :TagbarToggle<CR>
+nnoremap <silent> <Leader>t :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 let g:tagbar_type_go = {
@@ -759,7 +772,7 @@ set smartindent
 set modifiable
 set write
 
-set nowrap
+set wrap
 
 augroup vimrc-ruby
   autocmd!
@@ -872,14 +885,14 @@ set mouse=a
 set incsearch
 
 " Submode
-call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-" call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-" call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#enter_with('bufmove', 'n', '', '<Leader>>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', '<Leader><', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', '<Leader>+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', '<Leader>-', '<C-w>-')
 call submode#map('bufmove', 'n', '', '>', '<C-w>>')
 call submode#map('bufmove', 'n', '', '<', '<C-w><')
-" call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-" call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
 " Determining the current location
 nnoremap <leader>d :echo expand("%")<CR>
