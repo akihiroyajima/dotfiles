@@ -123,13 +123,13 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Yggdroot/indentLine'
 
 "" Javascript Bundle
-" NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 NeoBundle 'moll/vim-node'
 NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'vim-scripts/jQuery'
+" NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
-NeoBundleLazy 'jelera/vim-javascript-syntax', {
-      \ 'autoload': { 'filetypes': ['javascript'] }}
 
 "" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
@@ -822,6 +822,7 @@ au BufRead,BufNewFile *.scss setl ft=sass
 
 "" JavaScript
 au BufRead,BufNewFile,BufReadPre *.js setl ft=javascript syntax=jquery
+au BufRead,BufNewFile,BufReadPre *.jsx setl ft=javascript.jsx
 let g:SimpleJsIndenter_BriefMode = 1
 let g:jscomplete_use = ['dom', 'moz']
 
