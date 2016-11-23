@@ -154,6 +154,7 @@ NeoBundle "fatih/vim-go"
 
 "" PHP Bundle
 NeoBundle 'violetyk/neocomplete-php.vim'
+NeoBundle 'smarty-syntax'
 NeoBundle 'joonty/vdebug'
 
 "" Ruby Bundle
