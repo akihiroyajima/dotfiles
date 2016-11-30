@@ -868,7 +868,6 @@ let g:indentLine_color_gui = '#3B3F3F'
 let g:indentLine_faster = 1
 let g:indentLine_char = '│'
 nnoremap <silent> <leader>i :<C-u>IndentLinesToggle<CR>
-set list listchars=tab:▸\
 
 " Yank
 nmap p <Plug>(yankround-p)
