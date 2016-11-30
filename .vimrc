@@ -101,6 +101,7 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/Zenburn'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'sjl/badwolf'
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
