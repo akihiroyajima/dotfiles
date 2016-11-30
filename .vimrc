@@ -242,7 +242,7 @@ endif
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo\ for\ Powerline:h11
+    set guifont=Menlo\ for\ Powerline:h12
     set guioptions=ga
     set transparency=0
     hi CursorLineNr guifg=#657B84 guibg=#002B36
