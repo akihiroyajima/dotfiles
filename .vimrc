@@ -229,7 +229,7 @@ let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 
 if !exists('g:not_finsh_neobundle')
-  colorscheme solarized
+  colorscheme gruvbox
 endif
 
 set cursorline
@@ -289,13 +289,13 @@ endif
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'gruvbox'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 1
-let g:tmuxline_theme = 'solarized'
+let g:tmuxline_theme = 'gruvbox'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
