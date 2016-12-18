@@ -37,6 +37,8 @@ alias vi="vim"
 
 # Tmux
 alias t="tmux"
+# Vagrant
+alias v='vagrant'
 
 # Dotfiles
 alias dotfiles='cd ~/Development/dotfiles'
