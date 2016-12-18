@@ -7,7 +7,7 @@ plugins=(git)
 
 # User configuration
 export PATH=/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
+# export MANPATH='/usr/local/man:$MANPATH'
 source $ZSH/oh-my-zsh.sh
 
 PATH=$HOME/.cabal/bin:$PATH
@@ -33,10 +33,11 @@ stty dsusp undef
 # ======================================================================
 
 # Vim
-alias vi="vim"
+alias vi='vim'
 
 # Tmux
-alias t="tmux"
+alias t='tmux'
+
 # Vagrant
 alias v='vagrant'
 
@@ -62,7 +63,7 @@ alias ohmyzsh='vi ~/.oh-my-zsh'
 alias sourcezsh='source ~/.zshrc'
 alias sourcevim='source ~/.vimrc'
 alias sourcegit='source ~/.gitconfig'
-alias sourcetmux="t source-file ~/.tmux.conf"
+alias sourcetmux='t source-file ~/.tmux.conf'
 
 # Listing
 alias la='ls -a'
