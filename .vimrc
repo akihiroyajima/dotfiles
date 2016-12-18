@@ -114,6 +114,8 @@ let g:vim_bootstrap_editor = "vim"  " nvim or vim
 "" Custom bundles
 NeoBundle 'vim-scripts/c.vim'
 NeoBundle 'szw/vim-tags'
+NeoBundle 'joonty/vdebug'
+NeoBundle 'editorconfig/editorconfig-vim'
 " NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundleLazy 'tpope/vim-endwise', {
@@ -158,7 +160,6 @@ NeoBundle "fatih/vim-go"
 "" PHP Bundle
 NeoBundle 'violetyk/neocomplete-php.vim'
 NeoBundle 'smarty-syntax'
-NeoBundle 'joonty/vdebug'
 
 "" Ruby Bundle
 NeoBundle "tpope/vim-rails"
