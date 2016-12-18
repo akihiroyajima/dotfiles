@@ -900,3 +900,9 @@ call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
 " Determining the current location
 nnoremap <leader>d :echo expand("%")<CR>
+
+" Vdebug
+let g:vdebug_features = {
+\    'max_children': 128,
+\    'max_data': 5120,
+\}
