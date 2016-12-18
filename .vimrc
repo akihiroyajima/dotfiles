@@ -239,8 +239,8 @@ set t_Co=256
 set linespace=0
 
 if $TERM_PROGRAM =~ "iTerm"
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  " let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  " let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 endif
 
 if has("gui_running")
@@ -248,7 +248,6 @@ if has("gui_running")
     set guifont=Menlo\ for\ Powerline:h12
     set guioptions=ga
     set transparency=0
-    hi CursorLineNr guifg=#657B84 guibg=#002B36
   endif
 else
   let g:CSApprox_loaded = 1
@@ -296,7 +295,7 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 1
-let g:tmuxline_theme = 'gruvbox'
+let g:tmuxline_theme = 'airline'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
