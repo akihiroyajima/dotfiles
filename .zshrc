@@ -40,6 +40,10 @@ alias t="tmux"
 # Vagrant
 alias v='vagrant'
 
+# Ruby on Rails
+alias rails='bundle exec rails'
+alias rake='bundle exec rake'
+
 # Dotfiles
 alias dotfiles='cd ~/Development/dotfiles'
 
