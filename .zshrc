@@ -7,7 +7,7 @@ plugins=(git)
 
 # User configuration
 export PATH=/usr/local/bin:$PATH
-# export MANPATH='/usr/local/man:$MANPATH'
+export MANPATH='/usr/local/man:$MANPATH'
 source $ZSH/oh-my-zsh.sh
 
 PATH=$HOME/.cabal/bin:$PATH
@@ -31,9 +31,6 @@ stty dsusp undef
 # ======================================================================
 # Aliases
 # ======================================================================
-
-# Vim
-alias vi='vim'
 
 # Tmux
 alias t='tmux'

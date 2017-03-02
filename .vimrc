@@ -137,7 +137,7 @@ NeoBundle 'vim-scripts/jQuery'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 
 "" HTML Bundle
-NeoBundle 'amirh/HTML-AutoCloseTag'
+" NeoBundle 'amirh/HTML-AutoCloseTag'
 " NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'mattn/emmet-vim'
 " NeoBundle 'taichouchou2/html5.vim'
@@ -149,7 +149,6 @@ NeoBundle 'cakebaker/scss-syntax.vim'
 " Perl Bundle
 NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'c9s/perlomni.vim'
-
 NeoBundle "eagletmt/neco-ghc"
 NeoBundle "dag/vim2hs"
 NeoBundle "pbrisbin/vim-syntax-shakespeare"
@@ -159,7 +158,6 @@ NeoBundle "fatih/vim-go"
 
 "" PHP Bundle
 NeoBundle 'violetyk/neocomplete-php.vim'
-NeoBundle 'smarty-syntax'
 
 "" Ruby Bundle
 NeoBundle "tpope/vim-rails"
@@ -226,8 +224,8 @@ set background=dark
 set linespace=2
 let no_buffers_menu=1
 " solarized options
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
+" let g:solarized_visibility = "high"
+" let g:solarized_contrast = "high"
 
 if !exists('g:not_finsh_neobundle')
   colorscheme gruvbox
@@ -417,14 +415,6 @@ set autoread
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************"
-
-"" Replace
-nnoremap ; :
-nnoremap : ;
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -786,7 +776,7 @@ augroup END
 
 augroup vimrc-html
   autocmd!
-  autocmd BufNewFile,BufRead *.html,*.tpl setlocal filetype=html
+  autocmd BufNewFile,BufRead *.html,*.tpl,*.erb setlocal filetype=html
   autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 et
 augroup END
 
@@ -805,7 +795,7 @@ if has('syntax')
 endif
 
 " HTML
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tpl"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tpl,*.erb"
 autocmd BufRead,BufNewFile *.slim set ft=slim
 " emmet-vim
 let g:user_emmet_leader_key = '<C-e>'
@@ -824,8 +814,7 @@ autocmd FileType less,sass setl sw=2 sts=2 ts=2 et
 au BufRead,BufNewFile *.scss setl ft=sass
 
 "" JavaScript
-au BufRead,BufNewFile,BufReadPre *.js setl ft=javascript syntax=jquery
-au BufRead,BufNewFile,BufReadPre *.jsx setl ft=javascript.jsx
+au BufRead,BufNewFile,BufReadPre *.js,*.jsx setl ft=javascript.jsx syntax=jquery
 let g:SimpleJsIndenter_BriefMode = 1
 let g:jscomplete_use = ['dom', 'moz']
 
@@ -841,16 +830,6 @@ inoremap ' ''<Left>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
-
-" Escape from INSERT MODE
-inoremap <silent> jj <ESC>
-inoremap <silent> kk <ESC>
-
-" Cursor movement in insert mode
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
 
 " over.vim
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
@@ -870,14 +849,6 @@ let g:indentLine_color_gui = '#3B3F3F'
 let g:indentLine_faster = 1
 let g:indentLine_char = '│'
 nnoremap <silent> <leader>i :<C-u>IndentLinesToggle<CR>
-
-" Yank
-nmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-" nmap <C-p> <Plug>(yankround-prev)
-" nmap <C-n> <Plug>(yankround-next)
-let g:yankround_max_history = 50
-nnoremap <silent> <leader><C-p> :<C-u>CtrlPYankRound<CR>
 
 " Paste
 set clipboard+=unnamed
@@ -900,9 +871,3 @@ call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
 " Determining the current location
 nnoremap <leader>d :echo expand("%")<CR>
-
-" Vdebug
-let g:vdebug_features = {
-\    'max_children': 128,
-\    'max_data': 5120,
-\}
