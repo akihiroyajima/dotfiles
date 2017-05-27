@@ -64,9 +64,8 @@ alias sourcetmux='t source-file ~/.tmux.conf'
 
 # Listing
 alias la='ls -a'
-alias lf='ls -F'
-alias ll='ls -l'
-alias lla='ls -la'
+alias ls='ls -GF'
+alias ll='ls -la'
 
 # Git
 alias g='git'

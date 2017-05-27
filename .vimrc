@@ -158,13 +158,14 @@ NeoBundle "fatih/vim-go"
 
 "" PHP Bundle
 NeoBundle 'violetyk/neocomplete-php.vim'
+NeoBundle 'evidens/vim-twig'
 
 "" Ruby Bundle
-NeoBundle "tpope/vim-rails"
-NeoBundle "tpope/vim-rake"
-NeoBundle "tpope/vim-projectionist"
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-rake'
+NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle "thoughtbot/vim-rspec"
+NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
 
@@ -243,7 +244,7 @@ endif
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo\ for\ Powerline:h12
+    set guifont=SF\ Mono\ Regular\ for\ Powerline:h16
     set guioptions=ga
     set transparency=0
   endif
