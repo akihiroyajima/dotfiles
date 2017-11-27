@@ -58,7 +58,7 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'Shougo/vimfiler'
+" NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neoyank.vim'
@@ -97,61 +97,46 @@ NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 
 "" Color
-NeoBundle 'tomasr/molokai'
-NeoBundle 'vim-scripts/Zenburn'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'morhetz/gruvbox'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'sjl/badwolf'
 
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
 
-let g:vim_bootstrap_langs = "javascript,ruby,haskell,python,c,php,html,perl,go"
+let g:vim_bootstrap_langs = "javascript,ruby,python,php,html,go"
 let g:vim_bootstrap_editor = "vim"  " nvim or vim
 
 "" Custom bundles
-NeoBundle 'vim-scripts/c.vim'
 NeoBundle 'szw/vim-tags'
-NeoBundle 'joonty/vdebug'
 NeoBundle 'editorconfig/editorconfig-vim'
 " NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'majutsushi/tagbar'
 NeoBundleLazy 'tpope/vim-endwise', {
       \ 'autoload': { 'insert': 1, }}
 
 "" Python Bundle
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Yggdroot/indentLine'
 
 "" Javascript Bundle
-NeoBundle 'pangloss/vim-javascript'
+" NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'moll/vim-node'
 NeoBundle 'mattn/jscomplete-vim'
-NeoBundle 'vim-scripts/jQuery'
+" NeoBundle 'vim-scripts/jQuery'
 " NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'jiangmiao/simple-javascript-indenter'
+NeoBundleLazy 'othree/yajs.vim', {
+      \ 'autoload': { 'filetypes': ['javascript'] }}
 
 "" HTML Bundle
-" NeoBundle 'amirh/HTML-AutoCloseTag'
-" NeoBundle 'gorodinskiy/vim-coloresque'
+NeoBundle 'amirh/HTML-AutoCloseTag'
 NeoBundle 'mattn/emmet-vim'
-" NeoBundle 'taichouchou2/html5.vim'
-" NeoBundle 'slim-template/vim-slim'
-NeoBundle 'AtsushiM/sass-compile.vim'
+NeoBundle 'taichouchou2/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
-
-" Perl Bundle
-NeoBundle 'vim-perl/vim-perl'
-NeoBundle 'c9s/perlomni.vim'
-NeoBundle "eagletmt/neco-ghc"
-NeoBundle "dag/vim2hs"
-NeoBundle "pbrisbin/vim-syntax-shakespeare"
 
 "" Go Lang Bundle
 NeoBundle "fatih/vim-go"
@@ -232,9 +217,9 @@ if !exists('g:not_finsh_neobundle')
   colorscheme gruvbox
 endif
 
-set cursorline
+" set cursorline
 set mousemodel=popup
-set t_Co=256
+" set t_Co=256
 set linespace=0
 
 if $TERM_PROGRAM =~ "iTerm"
@@ -244,7 +229,7 @@ endif
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
-    set guifont=SF\ Mono\ Regular\ for\ Powerline:h16
+    set guifont=SF\ Mono\ Regular\ for\ Powerline:h14
     set guioptions=ga
     set transparency=0
   endif
@@ -297,27 +282,39 @@ let g:airline#extensions#tmuxline#enabled = 1
 let g:tmuxline_theme = 'airline'
 
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 
-if !exists('g:airline_powerline_fonts')
-  let g:airline_left_sep = '>'
-  let g:airline_left_alt_sep = '>'
-  let g:airline_right_sep = '<'
-  let g:airline_right_alt_sep = '<'
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#virtualenv#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+
+let g:airline_theme = 'gruvbox'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 1
+let g:tmuxline_theme = 'airline'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
+
+if g:airline_powerline_fonts == 1
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.linenr = '⭡'
 else
-  let g:airline_left_sep = '⮀'
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = '⮂'
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = '⭠'
-  let g:airline_symbols.readonly = '⭤'
-  let g:airline_symbols.linenr = '⭡'
-  let g:airline#extensions#tabline#left_sep = '⮀'
-  let g:airline#extensions#tabline#left_alt_sep = ''
-endif
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols.branch = '⎋'
+    let g:airline_symbols.readonly = '✖︎'
+    let g:airline_symbols.linenr = '␤'
+end
 
 "*****************************************************************************
 "" Abbreviations
@@ -578,9 +575,9 @@ nnoremap  [unite] <Nop>
 nmap <Leader>u [unite]
 
 " unite.vim keymap
-nnoremap <F4> :<C-u>VimFiler<CR>
-nnoremap <silent> [unite]u :<C-u>VimFiler<CR>
-nnoremap <silent> [unite]c :<C-u>VimFilerBufferDir<CR>
+" nnoremap <F4> :<C-u>VimFiler<CR>
+" nnoremap <silent> [unite]u :<C-u>VimFiler<CR>
+" nnoremap <silent> [unite]c :<C-u>VimFilerBufferDir<CR>
 nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<Space>bookmark<CR>
@@ -607,14 +604,14 @@ let g:unite_source_grep_recursive_opt = ''
 vnoremap /g y:Unite grep::-iRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
 
 "" VimFiler
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_safe_mode_by_default = 0
+" let g:vimfiler_as_default_explorer = 1
+" let g:vimfiler_safe_mode_by_default = 0
 " Icons.
-let g:vimfiler_tree_leaf_icon = ' '
-let g:vimfiler_tree_opened_icon = '▾'
-let g:vimfiler_tree_closed_icon = '▸'
-let g:vimfiler_file_icon = '-'
-let g:vimfiler_marked_file_icon = '*'
+" let g:vimfiler_tree_leaf_icon = ' '
+" let g:vimfiler_tree_opened_icon = '▾'
+" let g:vimfiler_tree_closed_icon = '▸'
+" let g:vimfiler_file_icon = '-'
+" let g:vimfiler_marked_file_icon = '*'
 
 " snippets
 let g:UltiSnipsExpandTrigger="<TAB>"
@@ -737,8 +734,6 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
-let g:javascript_enable_domhtmlcss = 1
-
 let g:haskell_conceal_wide = 1
 let g:haskell_multiline_strings = 1
 let g:necoghc_enable_detailed_browse = 1
@@ -777,7 +772,7 @@ augroup END
 
 augroup vimrc-html
   autocmd!
-  autocmd BufNewFile,BufRead *.html,*.tpl,*.erb setlocal filetype=html
+  autocmd BufNewFile,BufRead *.html,*.tpl setlocal filetype=html
   autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 et
 augroup END
 
@@ -804,20 +799,13 @@ let g:user_emmet_settings = {
       \   'indentation': '  '
       \ }
 
-" Sass
-let g:sass_compile_auto = 1
-let g:sass_compile_cdloop = 5
-let g:sass_compile_cssdir = ['css', 'stylesheet']
-let g:sass_compile_file = ['scss', 'sass']
-let g:sass_started_dirs = []
-
 autocmd FileType less,sass setl sw=2 sts=2 ts=2 et
 au BufRead,BufNewFile *.scss setl ft=sass
 
 "" JavaScript
-au BufRead,BufNewFile,BufReadPre *.js,*.jsx setl ft=javascript.jsx syntax=jquery
-let g:SimpleJsIndenter_BriefMode = 1
-let g:jscomplete_use = ['dom', 'moz']
+au BufRead,BufNewFile,BufReadPre *.js,*.jsx setl ft=javascript
+" let g:jsx_ext_required = 0
+" let g:jscomplete_use = ['dom', 'moz']
 
 "" PHP
 autocmd FileType php setl sw=4 sts=0 ts=4 et

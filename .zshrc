@@ -1,4 +1,5 @@
 # Path to your oh-my-zsh installation.
+export LC_CTYPE="UTF-8"
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME='ys'
@@ -41,13 +42,10 @@ alias v='vagrant'
 # Ruby on Rails
 alias rails='bundle exec rails'
 alias rake='bundle exec rake'
+alias cap='bundle exec cap'
 
 # Dotfiles
 alias dotfiles='cd ~/Development/dotfiles'
-
-# MAMP
-alias mamp='cd /Applications/MAMP'
-alias workspace='cd /Applications/MAMP/workspace'
 
 # Config
 alias zshrc='vi ~/.zshrc'
