@@ -24,7 +24,7 @@ function chpwd() { ls -F }
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
 # Node Pacage Manager
-export PATH=/usr/local/share/npm/bin:$PATH
+# export PATH=/usr/local/share/npm/bin:$PATH
 
 # Disable suspend in the Ctrl-y
 stty dsusp undef
@@ -40,9 +40,9 @@ alias t='tmux'
 alias v='vagrant'
 
 # Ruby on Rails
-alias rails='bundle exec rails'
+# alias rails='bundle exec rails'
 alias rake='bundle exec rake'
-alias cap='bundle exec cap'
+# alias cap='bundle exec cap'
 
 # Dotfiles
 alias dotfiles='cd ~/Development/dotfiles'

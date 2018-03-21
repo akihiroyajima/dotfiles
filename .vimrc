@@ -56,69 +56,72 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'osyo-manga/vim-over'
+" NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 " NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neoyank.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'LeafCage/yankround.vim'
+" NeoBundle 'Shougo/neomru.vim'
+" NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'sheerun/vim-polyglot'
+" NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
-NeoBundle 'vim-scripts/CSApprox'
-NeoBundle 'vim-scripts/AnsiEsc.vim'
+" NeoBundle 'vim-scripts/CSApprox'
+" NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'open-browser.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
+" NeoBundle 'open-browser.vim'
+" NeoBundle 'Shougo/vimproc.vim', {
+"       \ 'build' : {
+"       \     'windows' : 'tools\\update-dll-mingw',
+"       \     'cygwin' : 'make -f make_cygwin.mak',
+"       \     'mac' : 'make -f make_mac.mak',
+"       \     'unix' : 'make -f make_unix.mak',
+"       \    },
+"       \ }
+
 if v:version > 702
   NeoBundle 'Shougo/vimshell.vim'
 endif
 
 "" Vim-Session
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-session'
+" NeoBundle 'xolox/vim-misc'
+" NeoBundle 'xolox/vim-session'
+NeoBundle 'thaerkh/vim-workspace'
 
 "" Snippets
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
+" NeoBundle 'SirVer/ultisnips'
+" NeoBundle 'honza/vim-snippets'
 
 "" Color
 NeoBundle 'morhetz/gruvbox'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
-NeoBundle 'w0ng/vim-hybrid'
+" NeoBundle 'chriskempson/vim-tomorrow-theme'
+" NeoBundle 'w0ng/vim-hybrid'
 
 "" Vim-Bootstrap Updater
-NeoBundle 'sherzberg/vim-bootstrap-updater'
+" NeoBundle 'sherzberg/vim-bootstrap-updater'
 
-let g:vim_bootstrap_langs = "javascript,ruby,python,php,html,go"
-let g:vim_bootstrap_editor = "vim"  " nvim or vim
+" let g:vim_bootstrap_langs = 'javascript,ruby,python,php,html,go'
+" let g:vim_bootstrap_editor = 'vim' " nvim or vim
 
 "" Custom bundles
 NeoBundle 'szw/vim-tags'
 NeoBundle 'editorconfig/editorconfig-vim'
-" NeoBundle 'tyru/caw.vim.git'
+NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'vim-syntastic/syntastic'
+NeoBundle 'pmsorhaindo/syntastic-local-eslint.vim'
 NeoBundleLazy 'tpope/vim-endwise', {
       \ 'autoload': { 'insert': 1, }}
 
 "" Python Bundle
-NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'scrooloose/syntastic'
+" NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'Yggdroot/indentLine'
 
 "" Javascript Bundle
@@ -126,15 +129,16 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'moll/vim-node'
 NeoBundle 'mattn/jscomplete-vim'
+NeoBundle 'leafgarland/typescript-vim'
 " NeoBundle 'vim-scripts/jQuery'
 " NeoBundle 'kchmck/vim-coffee-script'
-NeoBundleLazy 'othree/yajs.vim', {
-      \ 'autoload': { 'filetypes': ['javascript'] }}
+" NeoBundleLazy 'othree/yajs.vim', {
+"       \ 'autoload': { 'filetypes': ['javascript'] }}
 
 "" HTML Bundle
-NeoBundle 'amirh/HTML-AutoCloseTag'
+" NeoBundle 'amirh/HTML-AutoCloseTag'
 NeoBundle 'mattn/emmet-vim'
-NeoBundle 'taichouchou2/html5.vim'
+" NeoBundle 'taichouchou2/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
 
@@ -143,7 +147,7 @@ NeoBundle "fatih/vim-go"
 
 "" PHP Bundle
 NeoBundle 'violetyk/neocomplete-php.vim'
-NeoBundle 'evidens/vim-twig'
+" NeoBundle 'evidens/vim-twig'
 
 "" Ruby Bundle
 NeoBundle 'tpope/vim-rails'
@@ -361,13 +365,6 @@ set switchbuf+=usetab,newtab
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_prompt =  '$ '
 
-" terminal emulation
-if g:vim_bootstrap_editor == 'nvim'
-  nnoremap <silent> <leader>sh :terminal<CR>
-else
-  nnoremap <silent> <leader>sh :VimShellCreate<CR>
-endif
-
 "*****************************************************************************
 "" Functions
 "*****************************************************************************
@@ -434,32 +431,35 @@ noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gdiff<CR>
 noremap <Leader>gr :Gremove<CR>
 
-"" Session management
-nnoremap <leader>so :OpenSession
-nnoremap <leader>ss :SaveSession
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
-
-let g:session_directory = "~/.vim/session"
-let g:session_command_aliases = 1
+"" Session
+" nnoremap <leader>so :OpenSession
+" nnoremap <leader>ss :SaveSession
+" nnoremap <leader>sd :DeleteSession<CR>
+" nnoremap <leader>sc :CloseSession<CR>
+"
+" let g:session_directory = "~/.vim/session"
+" let g:session_command_aliases = 1
 
 " Get .vimsessions/ under current directly
-let s:local_session_directory = xolox#misc#path#merge(getcwd(), '.visess')
+" "let s:local_session_directory = xolox#misc#path#merge(getcwd(), '.visess')
 " If it exists
-if isdirectory(s:local_session_directory)
-  " Setting the saved session directory to the directory
-  let g:session_directory = s:local_session_directory
-  " When Vim is closed, Vim save it automatically
-  let g:session_autosave = 'yes'
-  " When Vim is started without an argument, It open default.vim of the saved session directory
-  let g:session_autoload = 'yes'
-  " Save it automatically once a time
-  let g:session_autosave_periodic = 1
-else
-  let g:session_autosave = 'no'
-  let g:session_autoload = 'no'
-endif
-unlet s:local_session_directory
+" if isdirectory(s:local_session_directory)
+"   " Setting the saved session directory to the directory
+"   let g:session_directory = s:local_session_directory
+"   " When Vim is closed, Vim save it automatically
+"   let g:session_autosave = 'yes'
+"   " When Vim is started without an argument, It open default.vim of the saved session directory
+"   let g:session_autoload = 'yes'
+"   " Save it automatically once a time
+"   let g:session_autosave_periodic = 1
+" else
+"   let g:session_autosave = 'no'
+"   let g:session_autoload = 'no'
+" endif
+" unlet s:local_session_directory
+
+" vim-workspace
+let g:workspace_autosave_always = 1
 
 "" Reload opening files
 augroup vimrc-checktime
@@ -543,6 +543,7 @@ let g:neocomplete#enable_auto_select = 1
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
@@ -621,14 +622,18 @@ let g:UltiSnipsEditSplit="vertical"
 
 " syntastic
 
+"" Ruby
+let g:syntastic_ruby_checkers = ['rubocop']
+
 "" Python
 let g:syntastic_python_checkers=['python', 'flake8']
 let g:syntastic_python_flake8_post_args='--ignore=W391'
 
-"" Activate
+"" JavaScript
 let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_coffee_checkers = ['coffeelint']
-let g:syntastic_scss_checkers = ['scss_lint']
+
+"" SCSS
+let g:syntastic_scss_checkers = ['scss/sass']
 
 "" Symbol
 let g:syntastic_error_symbol='✗'
@@ -644,10 +649,11 @@ hi SyntasticErrorSign ctermfg=160
 hi SyntasticWarningSign ctermfg=220
 
 "" Listing
+let g:syntastic_enable_signs = 1
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
 
 " vim-gitgutter
 let g:gitgutter_sign_added = '✚'
@@ -791,7 +797,7 @@ if has('syntax')
 endif
 
 " HTML
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tpl,*.erb"
+" let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tpl,*.erb"
 autocmd BufRead,BufNewFile *.slim set ft=slim
 " emmet-vim
 let g:user_emmet_leader_key = '<C-e>'
@@ -800,7 +806,7 @@ let g:user_emmet_settings = {
       \ }
 
 autocmd FileType less,sass setl sw=2 sts=2 ts=2 et
-au BufRead,BufNewFile *.scss setl ft=sass
+au BufRead,BufNewFile *.scss setl ft=scss.css
 
 "" JavaScript
 au BufRead,BufNewFile,BufReadPre *.js,*.jsx setl ft=javascript
@@ -841,6 +847,9 @@ nnoremap <silent> <leader>i :<C-u>IndentLinesToggle<CR>
 
 " Paste
 set clipboard+=unnamed
+
+" For JSON
+set conceallevel=0
 
 " Mouse
 set mouse=a
