@@ -274,51 +274,51 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline#extensions#virtualenv#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-
-let g:airline_theme = 'gruvbox'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tmuxline#enabled = 1
-let g:tmuxline_theme = 'airline'
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-let g:airline#extensions#virtualenv#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-
-let g:airline_theme = 'gruvbox'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tmuxline#enabled = 1
-let g:tmuxline_theme = 'airline'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.whitespace = 'Ξ'
-
-if g:airline_powerline_fonts == 1
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = ''
-    let g:airline_symbols.readonly = ''
-    let g:airline_symbols.linenr = '⭡'
-else
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = '⎋'
-    let g:airline_symbols.readonly = '✖︎'
-    let g:airline_symbols.linenr = '␤'
-end
+" let g:airline#extensions#virtualenv#enabled = 1
+" let g:airline#extensions#tagbar#enabled = 1
+"
+" let g:airline_theme = 'gruvbox'
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#syntastic#enabled = 1
+" let g:airline#extensions#branch#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tmuxline#enabled = 1
+" let g:tmuxline_theme = 'airline'
+"
+" if !exists('g:airline_symbols')
+"     let g:airline_symbols = {}
+" endif
+"
+" let g:airline#extensions#virtualenv#enabled = 1
+" let g:airline#extensions#tagbar#enabled = 1
+"
+" let g:airline_theme = 'gruvbox'
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#syntastic#enabled = 1
+" let g:airline#extensions#branch#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tmuxline#enabled = 1
+" let g:tmuxline_theme = 'airline'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.whitespace = 'Ξ'
+"
+" if g:airline_powerline_fonts == 1
+"     let g:airline_left_sep = ''
+"     let g:airline_left_alt_sep = ''
+"     let g:airline_right_sep = ''
+"     let g:airline_right_alt_sep = ''
+"     let g:airline_symbols.branch = ''
+"     let g:airline_symbols.readonly = ''
+"     let g:airline_symbols.linenr = '⭡'
+" else
+"     let g:airline_left_sep = ''
+"     let g:airline_left_alt_sep = ''
+"     let g:airline_right_sep = ''
+"     let g:airline_right_alt_sep = ''
+"     let g:airline_symbols.branch = '⎋'
+"     let g:airline_symbols.readonly = '✖︎'
+"     let g:airline_symbols.linenr = '␤'
+" end
 
 "*****************************************************************************
 "" Abbreviations
