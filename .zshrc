@@ -36,6 +36,10 @@ stty dsusp undef
 # Tmux
 alias t='tmux'
 
+# Docker
+alias d='docker'
+alias dc='docker-compose'
+
 # Vagrant
 alias v='vagrant'
 
