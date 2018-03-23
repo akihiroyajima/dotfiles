@@ -58,15 +58,16 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'tomtom/tcomment_vim'
 " NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-" NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neoyank.vim'
 " NeoBundle 'Shougo/neomru.vim'
 " NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'kana/vim-submode'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
+" NeoBundle 'bling/vim-airline'
+" NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'airblade/vim-gitgutter'
 " NeoBundle 'sheerun/vim-polyglot'
@@ -125,7 +126,7 @@ NeoBundleLazy 'tpope/vim-endwise', {
 NeoBundle 'Yggdroot/indentLine'
 
 "" Javascript Bundle
-" NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'moll/vim-node'
 NeoBundle 'mattn/jscomplete-vim'
@@ -141,6 +142,7 @@ NeoBundle 'mattn/emmet-vim'
 " NeoBundle 'taichouchou2/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'plasticboy/vim-markdown'
 
 "" Go Lang Bundle
 NeoBundle "fatih/vim-go"
@@ -150,6 +152,7 @@ NeoBundle 'violetyk/neocomplete-php.vim'
 " NeoBundle 'evidens/vim-twig'
 
 "" Ruby Bundle
+NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-projectionist'
@@ -223,7 +226,7 @@ endif
 
 " set cursorline
 set mousemodel=popup
-" set t_Co=256
+set t_Co=256
 set linespace=0
 
 if $TERM_PROGRAM =~ "iTerm"
@@ -415,6 +418,9 @@ set autoread
 set splitbelow
 set splitright
 
+" Multiple cursor like Atom
+let g:multi_cursor_next_key='<C-d>'
+
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -459,6 +465,9 @@ noremap <Leader>gr :Gremove<CR>
 " unlet s:local_session_directory
 
 " vim-workspace
+nnoremap <leader>s :ToggleWorkspace<CR>
+let g:workspace_session_name = './Session.vim'
+let g:workspace_undodir='./.undodir'
 let g:workspace_autosave_always = 1
 
 "" Reload opening files
@@ -576,9 +585,9 @@ nnoremap  [unite] <Nop>
 nmap <Leader>u [unite]
 
 " unite.vim keymap
-" nnoremap <F4> :<C-u>VimFiler<CR>
-" nnoremap <silent> [unite]u :<C-u>VimFiler<CR>
-" nnoremap <silent> [unite]c :<C-u>VimFilerBufferDir<CR>
+nnoremap <F4> :<C-u>VimFiler<CR>
+nnoremap <silent> [unite]u :<C-u>VimFiler<CR>
+nnoremap <silent> [unite]c :<C-u>VimFilerBufferDir<CR>
 nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<Space>bookmark<CR>
