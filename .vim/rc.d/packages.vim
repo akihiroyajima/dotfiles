@@ -110,7 +110,7 @@ NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'marcus/rsense'
-NeoBundle 'supermomonga/neocomplete-rsense.vim'
+" NeoBundle 'supermomonga/neocomplete-rsense.vim'
 
 call neobundle#end()
 

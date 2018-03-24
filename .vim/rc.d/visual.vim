@@ -10,14 +10,14 @@ let no_buffers_menu=1
 " solarized options
 " let g:solarized_visibility = "high"
 " let g:solarized_contrast = "high"
+colorscheme gruvbox
+set t_Co=256
 
 if !exists('g:not_finsh_neobundle')
-  colorscheme gruvbox
 endif
 
 " set cursorline
 set mousemodel=popup
-set t_Co=256
 set linespace=0
 
 if $TERM_PROGRAM =~ "iTerm"
