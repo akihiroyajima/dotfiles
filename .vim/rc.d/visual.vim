@@ -77,7 +77,7 @@ endif
 " let g:airline#extensions#branch#enabled = 1
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tmuxline#enabled = 1
-" let g:tmuxline_theme = 'airline'
+let g:tmuxline_theme = 'airline'
 "
 " if !exists('g:airline_symbols')
 "     let g:airline_symbols = {}
