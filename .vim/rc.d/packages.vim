@@ -94,6 +94,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'slim-template/vim-slim'
 
 "" Go Lang Bundle
 NeoBundle "fatih/vim-go"
