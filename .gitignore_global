@@ -1,0 +1,23 @@
+# *~
+.DS_Store
+
+# For Editor
+tags
+.tags*
+.undodir
+Session.vim
+# .editorconfig
+
+# For Docker
+Dockerfile
+
+# For Vagrant
+Vagrantfile
+/.vagrant/*
+ssh.config
+
+# For Ruby on Rails
+/vendor/*
+
+# For Angular
+www
