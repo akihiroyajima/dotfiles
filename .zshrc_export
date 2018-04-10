@@ -1,0 +1,20 @@
+# Character code
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Python
+export PYENV_ROOT=/usr/local/var/pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# Ruby
+export RBENV_ROOT=/usr/local/var/rbenv
+if which pyenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Node.js
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# Vim
+# export PATH=$PATH:/usr/local/bin
+
+# Git diff
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
