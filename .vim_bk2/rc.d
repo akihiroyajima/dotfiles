@@ -1,0 +1,1 @@
+/Users/akihiroyajima/Development/dotfiles/.vim/rc.d
