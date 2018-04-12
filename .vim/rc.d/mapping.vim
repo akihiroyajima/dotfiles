@@ -63,7 +63,8 @@ set splitbelow
 set splitright
 
 " Multiple cursor like Atom
-let g:multi_cursor_next_key='<C-c>'
+let g:multi_cursor_start_word_key = '<C-c>'
+let g:multi_cursor_next_key = '<C-c>'
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
