@@ -14,8 +14,6 @@
 	ps = push
 	sh = show
 	st = stash
-[url "git@github.com:"]
-	pushinsteadof = https://github.com/
 [push]
 	default = simple
 [filter "lfs"]
@@ -44,3 +42,9 @@
 	diff = diff-highlight | less
 [commit]
 	template = /Users/akihiroyajima/.stCommitMsg
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
