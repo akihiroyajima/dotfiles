@@ -27,7 +27,7 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 # export PATH=/usr/local/share/npm/bin:$PATH
 
 # Disable suspend in the Ctrl-y
-stty dsusp undef
+[[ -t 0 ]] && stty dsusp undef
 
 # ======================================================================
 # Aliases
@@ -213,6 +213,15 @@ function tmux_automatically_attach_session()
     fi
   fi
 }
-tmux_automatically_attach_session
+# tmux_automatically_attach_session
 
 source $HOME/.zshrc_export
+
+# claude 実行中は Mac をスリープさせない
+alias claude='caffeinate -i claude'
+
+# 新しいシェルで自動的に claude を起動
+if [[ $- == *i* ]] && [[ -z "$INSIDE_CLAUDE" ]]; then
+  export INSIDE_CLAUDE=1
+  caffeinate -i claude
+fi
