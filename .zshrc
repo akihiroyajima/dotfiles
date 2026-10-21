@@ -49,7 +49,7 @@ alias rake='bundle exec rake'
 # alias cap='bundle exec cap'
 
 # Dotfiles
-alias dotfiles='cd ~/Development/dotfiles'
+alias dotfiles='cd ~/dotfiles'
 
 # Config
 alias zshrc='vim ~/.zshrc'
