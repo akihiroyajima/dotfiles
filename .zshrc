@@ -218,11 +218,16 @@ function tmux_automatically_attach_session()
 
 source $HOME/.zshrc_export
 
-# claude 実行中は Mac をスリープさせない
+# claude・codex 実行中は Mac をスリープさせない
 alias claude='caffeinate -i claude'
+alias codex='caffeinate -i codex'
 
-# 新しいシェルで自動的に claude を起動
-if [[ $- == *i* ]] && [[ -z "$INSIDE_CLAUDE" ]]; then
-  export INSIDE_CLAUDE=1
-  caffeinate -i claude
-fi
+# cc で claude、cx で codex を起動
+alias cc="claude"
+alias cx="codex"
+
+# トークンなど公開しない値（~/.zshrc_secret、dotfiles には入れない）
+[ -f $HOME/.zshrc_secret ] && source $HOME/.zshrc_secret
+
+# cmux のタブ名を元に戻す
+alias ct='cmux tab-action clear-name'
