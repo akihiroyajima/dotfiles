@@ -61,6 +61,7 @@ alias tmuxconf='vim ~/.tmux.conf'
 alias ohmyzsh='vim ~/.oh-my-zsh'
 
 alias sourcezsh='source ~/.zshrc'
+alias sz='source ~/.zshrc'
 alias sourcevim='source ~/.vimrc'
 alias sourcegit='source ~/.gitconfig'
 alias sourcetmux='t source-file ~/.tmux.conf'
