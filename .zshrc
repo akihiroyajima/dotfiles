@@ -230,4 +230,4 @@ alias cx="codex"
 [ -f $HOME/.zshrc_secret ] && source $HOME/.zshrc_secret
 
 # cmux のタブ名を元に戻す
-alias ct='cmux tab-action clear-name'
+alias ct='cmux tab-action --tab "$CMUX_SURFACE_ID" --action clear-name'
