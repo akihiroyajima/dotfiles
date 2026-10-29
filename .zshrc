@@ -222,8 +222,16 @@ source $HOME/.zshrc_export
 alias claude='caffeinate -i claude'
 alias codex='caffeinate -i codex'
 
-# cc で claude、cx で codex を起動
-alias cc="claude"
+# cc で claude、cx で codex を起動（cc fork は前のセッションを分岐して再開）
+unalias cc 2>/dev/null
+cc() {
+  if [ "$1" = "fork" ]; then
+    shift
+    command caffeinate -i claude --resume --fork-session "$@"
+  else
+    command caffeinate -i claude "$@"
+  fi
+}
 alias cx="codex"
 
 # トークンなど公開しない値（~/.zshrc_secret、dotfiles には入れない）
